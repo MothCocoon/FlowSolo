@@ -9,8 +9,8 @@
 AFlowTriggerBase::AFlowTriggerBase(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
-	SetHidden(true);
-	SetCanBeDamaged(false);
+	bHidden = true;
+	bCanBeDamaged = false;
 
 	FlowTriggerComponent = CreateDefaultSubobject<UFlowTriggerComponent>(TEXT("FlowTriggerComponent"));
 

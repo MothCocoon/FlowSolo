@@ -6,8 +6,8 @@
 USpawnComponent::USpawnComponent(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
-	SetUsingAbsoluteScale(true);
-	SetUsingAbsoluteRotation(false);
+	bAbsoluteScale = true;
+	bAbsoluteRotation = false;
 	ArrowColor = FColor::Red;
 	ArrowSize = 0.5f;
 }

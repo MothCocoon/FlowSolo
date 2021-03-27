@@ -13,7 +13,7 @@ UInteractionComponent::UInteractionComponent(const FObjectInitializer& ObjectIni
 	PrimaryComponentTick.bCanEverTick = true;
 	PrimaryComponentTick.bStartWithTickEnabled = false;
 
-	SetUsingAbsoluteScale(true);
+	bAbsoluteScale = true;
 	ArrowColor = FColor::Red;
 	ArrowSize = 0.5f;
 }
