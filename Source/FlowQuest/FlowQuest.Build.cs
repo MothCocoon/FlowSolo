@@ -16,7 +16,6 @@ public class FlowQuest : ModuleRules
             "AIModule",
             "Core",
 			"CoreUObject",
-            "DeveloperSettings",
 			"Engine",
             "GameplayTags",
             "Slate",
