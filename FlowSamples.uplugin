@@ -1,0 +1,31 @@
+{
+	"FileVersion" : 3,
+	"Version" : 1.0,
+	"FriendlyName" : "FlowSamples",
+	"Description" : "Collection of simple modules showcasing Flow-based system.",
+	"Category" : "Gameplay",
+	"CreatedBy" : "Krzysztof Justyński",
+	"CreatedByURL" : "https://twitter.com/MothDoctor",
+	"DocsURL" : "https://github.com/MothCocoon/FlowSamples",
+	"MarketplaceURL" : "",
+	"EngineVersion": "4.26.0",
+	"EnabledByDefault" : true,
+	"CanContainContent" : false,
+	"IsBetaVersion" : false,
+	"Installed" : false,
+	"Modules" :
+	[
+		{
+			"Name" : "FlowQuest",
+			"Type" : "Runtime",
+			"LoadingPhase" : "Default"
+		}
+	],
+	"Plugins":
+	[
+		{
+			"Name": "Flow",
+			"Enabled": true
+		}
+	]
+}
