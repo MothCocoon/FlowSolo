@@ -1,32 +1,14 @@
-# Prerequisites
-*.d
+/.idea
+/.vs
+/_ReSharper.Caches
+/Binaries
+/Intermediate
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+*.sln
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
 *.exe
-*.out
-*.app
+*.exp
+*.lib
+*.patch_*
+*.pdb
+*.target
