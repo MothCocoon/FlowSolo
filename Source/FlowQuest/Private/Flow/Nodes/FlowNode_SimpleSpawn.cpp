@@ -12,14 +12,25 @@ UFlowNode_SimpleSpawn::UFlowNode_SimpleSpawn(const FObjectInitializer& ObjectIni
 	OutputNames = { TEXT("Out"), TEXT("Spawned"), TEXT("Despawned") };
 }
 
+void UFlowNode_SimpleSpawn::PostLoad()
+{
+	Super::PostLoad();
+
+	if (IdentityTag_DEPRECATED.IsValid())
+	{
+		IdentityTags = FGameplayTagContainer(IdentityTag_DEPRECATED);
+		IdentityTag_DEPRECATED = FGameplayTag();
+	}
+}
+
 void UFlowNode_SimpleSpawn::ExecuteInput(const FName& PinName)
 {
-	if (IdentityTag.IsValid())
+	if (IdentityTags.IsValid())
 	{
 		if (PinName == TEXT("Spawn"))
 		{
 			int32 SpawnCount = 0;
-			for (const TWeakObjectPtr<UFlowComponent>& FoundComponent : GetFlowSubsystem()->GetComponents<UFlowComponent>(IdentityTag))
+			for (const TWeakObjectPtr<UFlowComponent>& FoundComponent : GetFlowSubsystem()->GetComponents<UFlowComponent>(IdentityTags, EGameplayContainerMatchType::Any))
 			{
 				TArray<USpawnComponent*> NewSpawnComponents;
 				FoundComponent->GetOwner()->GetComponents<USpawnComponent>(NewSpawnComponents);
@@ -76,9 +87,7 @@ void UFlowNode_SimpleSpawn::Cleanup()
 #if WITH_EDITOR 
 FString UFlowNode_SimpleSpawn::GetNodeDescription() const
 {
-	const FString IdentityString = IdentityTag.IsValid() ? IdentityTag.ToString() : MissingIdentityTag;
 	const FString ClassString = SpawnParams.ActorClass ? SpawnParams.ActorClass->GetFName().ToString() : TEXT("Missing Actor Class!");
-
-	return IdentityString + LINE_TERMINATOR + ClassString;
+	return GetIdentityDescription(IdentityTags) + LINE_TERMINATOR + ClassString;
 }
 #endif

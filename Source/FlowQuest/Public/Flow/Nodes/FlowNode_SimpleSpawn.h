@@ -17,7 +17,7 @@ class FLOWQUEST_API UFlowNode_SimpleSpawn : public UFlowNode
 
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Spawn Point")
-	FGameplayTag IdentityTag;
+	FGameplayTagContainer IdentityTags;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Spawn", meta = (ShowOnlyInnerProperties))
 	FQuestSpawnParams SpawnParams;
@@ -25,6 +25,8 @@ private:
 	TSet<TWeakObjectPtr<USpawnComponent>> SpawnComponents;
 	
 protected:
+	virtual void PostLoad() override;
+	
 	virtual void ExecuteInput(const FName& PinName) override;
 	virtual void Cleanup() override;
 	
@@ -32,4 +34,8 @@ protected:
 public:
 	virtual FString GetNodeDescription() const override;
 #endif
+
+private:
+	UPROPERTY()
+	FGameplayTag IdentityTag_DEPRECATED;
 };
