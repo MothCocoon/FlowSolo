@@ -15,12 +15,17 @@ class FLOWQUEST_API UFlowNode_OnTriggerEvent : public UFlowNode_ComponentObserve
 
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Trigger")
-	FGameplayTag OverlappedActorTag;
+	FGameplayTagContainer OverlappedActorTags;
 
 	bool bReactOnOverlapping;
+
+	virtual void PostLoad() override;
 
 	virtual void ExecuteInput(const FName& PinName) override;
 	
 	virtual void ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component) override;
 	virtual void ForgetActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component) override;
+
+private:
+	FGameplayTag OverlappedActorTag_DEPRECATED;
 };
