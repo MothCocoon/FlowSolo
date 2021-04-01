@@ -6,12 +6,26 @@ UFlowNode_OnTriggerEvent::UFlowNode_OnTriggerEvent(const FObjectInitializer& Obj
 	, bReactOnOverlapping(false)
 {
 	// default behavior: react on Player overlapping with triggers
-	OverlappedActorTag = FGameplayTag::RequestGameplayTag(TEXT("Player.Pawn"));
+	if (FGameplayTag::IsValidGameplayTagString(TEXT("Player.Pawn")))
+	{
+		OverlappedActorTags = FGameplayTagContainer(FGameplayTag::RequestGameplayTag(TEXT("Player.Pawn")));
+	}
+}
+
+void UFlowNode_OnTriggerEvent::PostLoad()
+{
+	Super::PostLoad();
+
+	if (OverlappedActorTag_DEPRECATED.IsValid())
+	{
+		OverlappedActorTags = FGameplayTagContainer(OverlappedActorTag_DEPRECATED);
+		OverlappedActorTag_DEPRECATED = FGameplayTag();
+	}
 }
 
 void UFlowNode_OnTriggerEvent::ExecuteInput(const FName& PinName)
 {
-	if (OverlappedActorTag.IsValid())
+	if (OverlappedActorTags.IsValid())
 	{
 		Super::ExecuteInput(PinName);
 	}
@@ -32,7 +46,7 @@ void UFlowNode_OnTriggerEvent::ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakO
 			TWeakObjectPtr<UFlowNode_OnTriggerEvent> SelfWeakPtr(this);
 			FlowTriggerComponent->OnTriggerEvent.AddWeakLambda(this, [SelfWeakPtr](const bool bOverlapping, UFlowComponent* OtherFlowComponent)
 			{
-				if (SelfWeakPtr.IsValid() && SelfWeakPtr.Get()->bReactOnOverlapping == bOverlapping && OtherFlowComponent->IdentityTags.HasTagExact(SelfWeakPtr.Get()->OverlappedActorTag))
+				if (SelfWeakPtr.IsValid() && SelfWeakPtr.Get()->bReactOnOverlapping == bOverlapping && OtherFlowComponent->IdentityTags.HasAnyExact(SelfWeakPtr.Get()->OverlappedActorTags))
 				{
 					SelfWeakPtr->TriggerOutput(TEXT("Success"), true);
 				}
