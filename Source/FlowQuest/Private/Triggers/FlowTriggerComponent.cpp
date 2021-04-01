@@ -7,21 +7,22 @@
 UFlowTriggerComponent::UFlowTriggerComponent(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 	, bAutoEnable(true)
+	, bOverlapEnabled(false)
 {
 }
 
-void UFlowTriggerComponent::NotifyFromGraph(const FGameplayTag NotifyTag)
+void UFlowTriggerComponent::NotifyFromGraph(const FGameplayTagContainer& NotifyTags)
 {
-	if (NotifyTag == FGameplayTag::RequestGameplayTag(TEXT("Flow.Common.Enable")))
+	if (NotifyTags.HasTagExact(FGameplayTag::RequestGameplayTag(TEXT("Flow.Common.Enable"))))
 	{
 		EnableOverlap();
 	}
-	else if (NotifyTag == FGameplayTag::RequestGameplayTag(TEXT("Flow.Common.Disable")))
+	else if (NotifyTags.HasTagExact(FGameplayTag::RequestGameplayTag(TEXT("Flow.Common.Disable"))))
 	{
 		DisableOverlap();
 	}
 	
-	Super::NotifyFromGraph(NotifyTag);
+	Super::NotifyFromGraph(NotifyTags);
 }
 
 void UFlowTriggerComponent::EnableOverlap()
