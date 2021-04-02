@@ -20,7 +20,6 @@ void UFlowNode_SetInteractionState::PostLoad()
 	if (IdentityTag_DEPRECATED.IsValid())
 	{
 		IdentityTags = FGameplayTagContainer(IdentityTag_DEPRECATED);
-		IdentityTag_DEPRECATED = FGameplayTag();
 	}
 }
 
