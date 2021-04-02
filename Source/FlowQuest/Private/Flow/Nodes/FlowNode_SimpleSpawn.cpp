@@ -19,7 +19,6 @@ void UFlowNode_SimpleSpawn::PostLoad()
 	if (IdentityTag_DEPRECATED.IsValid())
 	{
 		IdentityTags = FGameplayTagContainer(IdentityTag_DEPRECATED);
-		IdentityTag_DEPRECATED = FGameplayTag();
 	}
 }
 

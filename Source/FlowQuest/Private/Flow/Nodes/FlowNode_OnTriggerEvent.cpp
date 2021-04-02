@@ -19,7 +19,6 @@ void UFlowNode_OnTriggerEvent::PostLoad()
 	if (OverlappedActorTag_DEPRECATED.IsValid())
 	{
 		OverlappedActorTags = FGameplayTagContainer(OverlappedActorTag_DEPRECATED);
-		OverlappedActorTag_DEPRECATED = FGameplayTag();
 	}
 }
 
