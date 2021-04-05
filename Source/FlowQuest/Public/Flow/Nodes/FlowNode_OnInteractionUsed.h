@@ -21,10 +21,6 @@ protected:
 	virtual void ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component) override;
 	virtual void ForgetActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component) override;
 	
-private:
-	UFUNCTION()
-	void OnInteractionUsed();
-
 protected:
 	virtual void Cleanup() override;
 };
