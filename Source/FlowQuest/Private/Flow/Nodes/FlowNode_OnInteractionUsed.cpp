@@ -6,7 +6,6 @@
 UFlowNode_OnInteractionUsed::UFlowNode_OnInteractionUsed(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
-	OutputNames = { TEXT("Used") };
 }
 
 void UFlowNode_OnInteractionUsed::ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component)
@@ -21,7 +20,7 @@ void UFlowNode_OnInteractionUsed::ObserveActor(TWeakObjectPtr<AActor> Actor, TWe
 			RegisteredActors.Emplace(Actor, Component);
 			
 			ObservedInteractions.Emplace(Actor, FoundInteractions[0]);
-			FoundInteractions[0]->OnUsed.AddDynamic(this, &UFlowNode_OnInteractionUsed::OnInteractionUsed);
+			FoundInteractions[0]->OnUsed.AddDynamic(this, &UFlowNode_OnInteractionUsed::OnEventReceived);
 		}
 	}
 }
@@ -32,11 +31,6 @@ void UFlowNode_OnInteractionUsed::ForgetActor(TWeakObjectPtr<AActor> Actor, TWea
 	TWeakObjectPtr<UInteractionComponent> InteractionComponent = ObservedInteractions[Component->GetOwner()];
 	
 	InteractionComponent->OnUsed.RemoveAll(this);
-}
-
-void UFlowNode_OnInteractionUsed::OnInteractionUsed()
-{
-	TriggerFirstOutput(true);
 }
 
 void UFlowNode_OnInteractionUsed::Cleanup()
