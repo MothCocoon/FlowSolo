@@ -47,7 +47,7 @@ void UFlowNode_OnTriggerEvent::ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakO
 			{
 				if (SelfWeakPtr.IsValid() && SelfWeakPtr.Get()->bReactOnOverlapping == bOverlapping && OtherFlowComponent->IdentityTags.HasAnyExact(SelfWeakPtr.Get()->OverlappedActorTags))
 				{
-					SelfWeakPtr->TriggerOutput(TEXT("Success"), true);
+					SelfWeakPtr->OnEventReceived();
 				}
 			});
 		}
