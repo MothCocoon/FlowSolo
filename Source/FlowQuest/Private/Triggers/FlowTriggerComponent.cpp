@@ -11,7 +11,7 @@ UFlowTriggerComponent::UFlowTriggerComponent(const FObjectInitializer& ObjectIni
 {
 }
 
-void UFlowTriggerComponent::NotifyFromGraph(const FGameplayTagContainer& NotifyTags)
+void UFlowTriggerComponent::NotifyFromGraph(const FGameplayTagContainer& NotifyTags, const EFlowNetMode NetMode)
 {
 	if (NotifyTags.HasTagExact(FGameplayTag::RequestGameplayTag(TEXT("Flow.Common.Enable"))))
 	{
