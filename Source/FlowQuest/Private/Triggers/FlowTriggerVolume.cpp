@@ -15,5 +15,6 @@ AFlowTriggerVolume::AFlowTriggerVolume(const FObjectInitializer& ObjectInitializ
 	BrushColor.B = 100;
 	BrushColor.A = 255;
 
+	bReplicates = true;
 	FlowTriggerComponent = CreateDefaultSubobject<UFlowTriggerComponent>(TEXT("FlowTriggerComponent"));
 }

@@ -41,15 +41,7 @@ void UFlowNode_OnTriggerEvent::ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakO
 		if (UFlowTriggerComponent* FlowTriggerComponent = Cast<UFlowTriggerComponent>(Component))
 		{
 			RegisteredActors.Emplace(Actor, FlowTriggerComponent);
-
-			TWeakObjectPtr<UFlowNode_OnTriggerEvent> SelfWeakPtr(this);
-			FlowTriggerComponent->OnTriggerEvent.AddWeakLambda(this, [SelfWeakPtr](const bool bOverlapping, UFlowComponent* OtherFlowComponent)
-			{
-				if (SelfWeakPtr.IsValid() && SelfWeakPtr.Get()->bReactOnOverlapping == bOverlapping && OtherFlowComponent->IdentityTags.HasAnyExact(SelfWeakPtr.Get()->OverlappedActorTags))
-				{
-					SelfWeakPtr->OnEventReceived();
-				}
-			});
+			FlowTriggerComponent->OnTriggerEvent.AddUObject(this, &UFlowNode_OnTriggerEvent::OnTriggerEvent);
 		}
 	}
 }
@@ -60,4 +52,12 @@ void UFlowNode_OnTriggerEvent::ForgetActor(TWeakObjectPtr<AActor> Actor, TWeakOb
 	ensureAlways(TriggerComponent);
 
 	TriggerComponent->OnTriggerEvent.RemoveAll(this);
+}
+
+void UFlowNode_OnTriggerEvent::OnTriggerEvent(const bool bOverlapping, UFlowComponent* OtherFlowComponent)
+{
+	if (bReactOnOverlapping == bOverlapping && OtherFlowComponent->IdentityTags.HasAnyExact(OverlappedActorTags))
+	{
+		OnEventReceived();
+	}
 }
