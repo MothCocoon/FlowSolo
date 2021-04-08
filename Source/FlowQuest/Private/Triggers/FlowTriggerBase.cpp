@@ -12,6 +12,7 @@ AFlowTriggerBase::AFlowTriggerBase(const FObjectInitializer& ObjectInitializer)
 	SetHidden(true);
 	SetCanBeDamaged(false);
 
+	bReplicates = true;
 	FlowTriggerComponent = CreateDefaultSubobject<UFlowTriggerComponent>(TEXT("FlowTriggerComponent"));
 
 	// AFlowTriggerBase is requesting UShapeComponent which is abstract, however it is responsibility
