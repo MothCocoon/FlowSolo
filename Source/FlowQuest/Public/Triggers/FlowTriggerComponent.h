@@ -23,7 +23,7 @@ class FLOWQUEST_API UFlowTriggerComponent final : public UFlowComponent
 	TArray<TWeakObjectPtr<UPrimitiveComponent>> CollisionComponents;
 
 protected:
-	virtual void NotifyFromGraph(const FGameplayTagContainer& NotifyTags) override;
+	virtual void NotifyFromGraph(const FGameplayTagContainer& NotifyTags, const EFlowNetMode NetMode) override;
 
 public:
 	void EnableOverlap();
