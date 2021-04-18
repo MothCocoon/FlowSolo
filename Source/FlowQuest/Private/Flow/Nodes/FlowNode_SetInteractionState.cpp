@@ -10,7 +10,7 @@ UFlowNode_SetInteractionState::UFlowNode_SetInteractionState(const FObjectInitia
 	Category = TEXT("World");
 #endif
 
-	InputNames = { TEXT("Enable"), TEXT("Disable") };
+	InputPins = { FFlowPin(TEXT("Enable")), FFlowPin(TEXT("Disable")) };
 }
 
 void UFlowNode_SetInteractionState::PostLoad()
@@ -48,6 +48,6 @@ void UFlowNode_SetInteractionState::ExecuteInput(const FName& PinName)
 #if WITH_EDITOR 
 FString UFlowNode_SetInteractionState::GetNodeDescription() const
 {
-	return GetIdentityDescription(IdentityTags);
+	return GetIdentityTagsDescription(IdentityTags);
 }
 #endif

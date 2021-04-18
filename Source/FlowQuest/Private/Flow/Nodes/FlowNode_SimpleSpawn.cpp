@@ -8,8 +8,8 @@ UFlowNode_SimpleSpawn::UFlowNode_SimpleSpawn(const FObjectInitializer& ObjectIni
 	Category = TEXT("World");
 #endif
 
-	InputNames = { TEXT("Spawn"), TEXT("Despawn") };
-	OutputNames = { TEXT("Out"), TEXT("Spawned"), TEXT("Despawned") };
+	AddInputPins({TEXT("Spawn"), TEXT("Despawn")});
+	AddOutputPins({TEXT("Out"), TEXT("Spawned"), TEXT("Despawned")});
 }
 
 void UFlowNode_SimpleSpawn::PostLoad()
@@ -83,10 +83,10 @@ void UFlowNode_SimpleSpawn::Cleanup()
 	SpawnComponents.Empty();
 }
 
-#if WITH_EDITOR 
+#if WITH_EDITOR
 FString UFlowNode_SimpleSpawn::GetNodeDescription() const
 {
 	const FString ClassString = SpawnParams.ActorClass ? SpawnParams.ActorClass->GetFName().ToString() : TEXT("Missing Actor Class!");
-	return GetIdentityDescription(IdentityTags) + LINE_TERMINATOR + ClassString;
+	return GetIdentityTagsDescription(IdentityTags) + LINE_TERMINATOR + ClassString;
 }
 #endif
