@@ -14,7 +14,7 @@ class FLOWQUEST_API UFlowNode_OnTriggerEvent : public UFlowNode_ComponentObserve
 	GENERATED_UCLASS_BODY()
 
 protected:
-	UPROPERTY(EditDefaultsOnly, Category = "Trigger")
+	UPROPERTY(EditAnywhere, Category = "Trigger")
 	FGameplayTagContainer OverlappedActorTags;
 
 	bool bReactOnOverlapping;
