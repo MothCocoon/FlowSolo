@@ -14,7 +14,7 @@ class FLOWQUEST_API UFlowNode_SetInteractionState : public UFlowNode
 	GENERATED_UCLASS_BODY()
 
 private:
-	UPROPERTY(EditDefaultsOnly, Category = "ObservedComponent")
+	UPROPERTY(EditAnywhere, Category = "ObservedComponent")
 	FGameplayTagContainer IdentityTags;
 	
 protected:

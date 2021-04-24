@@ -16,10 +16,10 @@ class FLOWQUEST_API UFlowNode_SimpleSpawn : public UFlowNode
 	GENERATED_UCLASS_BODY()
 
 private:
-	UPROPERTY(EditDefaultsOnly, Category = "Spawn Point")
+	UPROPERTY(EditAnywhere, Category = "Spawn Point")
 	FGameplayTagContainer IdentityTags;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Spawn", meta = (ShowOnlyInnerProperties))
+	UPROPERTY(EditAnywhere, Category = "Spawn", meta = (ShowOnlyInnerProperties))
 	FQuestSpawnParams SpawnParams;
 
 	TSet<TWeakObjectPtr<USpawnComponent>> SpawnComponents;
