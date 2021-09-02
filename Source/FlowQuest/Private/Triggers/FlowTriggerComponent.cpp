@@ -22,7 +22,7 @@ void UFlowTriggerComponent::NotifyFromGraph(const FGameplayTagContainer& NotifyT
 		DisableOverlap();
 	}
 	
-	Super::NotifyFromGraph(NotifyTags);
+	Super::NotifyFromGraph(NotifyTags, NetMode);
 }
 
 void UFlowTriggerComponent::EnableOverlap()
