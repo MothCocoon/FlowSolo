@@ -5,6 +5,9 @@
 
 class UFlowTriggerComponent;
 
+/** 
+ *	An editable 3D trigger volume placed in a level.
+ */
 UCLASS()
 class FLOWQUEST_API AFlowTriggerVolume : public AVolume
 {
