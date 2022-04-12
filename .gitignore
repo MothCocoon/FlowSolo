@@ -2,13 +2,21 @@
 /.vs
 /_ReSharper.Caches
 /Binaries
+/Build/WindowsNoEditor
 /Intermediate
+/Plugins/*/Binaries
+/Plugins/*/Intermediate
+/Saved
+/WindowsNoEditor
 
-*.sln
+/Plugins/Developer/RiderLink
+/Plugins/FlowGraphs
 
 *.exe
 *.exp
 *.lib
 *.patch_*
 *.pdb
+*.sln
 *.target
+*.user
