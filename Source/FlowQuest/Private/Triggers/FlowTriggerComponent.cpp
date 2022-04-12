@@ -38,7 +38,7 @@ void UFlowTriggerComponent::EnableOverlap()
 				UPrimitiveComponent* CollisionComponent = Cast<UPrimitiveComponent>(Component);
 				if (CollisionComponent->GetGenerateOverlapEvents() && CollisionComponent->GetCollisionProfileName() == TEXT("Trigger"))
 				{
-					CollisionComponents.Emplace();
+					CollisionComponents.Emplace(CollisionComponent);
 
 					CollisionComponent->OnComponentBeginOverlap.AddDynamic(this, &UFlowTriggerComponent::OnComponentBeginOverlap);
 					CollisionComponent->OnComponentEndOverlap.AddDynamic(this, &UFlowTriggerComponent::OnComponentEndOverlap);
