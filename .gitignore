@@ -10,7 +10,7 @@
 /WindowsNoEditor
 
 /Plugins/Developer/RiderLink
-/Plugins/FlowGraphs
+/Plugins/FlowGraph
 
 *.exe
 *.exp
