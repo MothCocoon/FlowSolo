@@ -12,16 +12,6 @@ UFlowNode_SimpleSpawn::UFlowNode_SimpleSpawn(const FObjectInitializer& ObjectIni
 	AddOutputPins({TEXT("Out"), TEXT("Spawned"), TEXT("Despawned")});
 }
 
-void UFlowNode_SimpleSpawn::PostLoad()
-{
-	Super::PostLoad();
-
-	if (IdentityTag_DEPRECATED.IsValid())
-	{
-		IdentityTags = FGameplayTagContainer(IdentityTag_DEPRECATED);
-	}
-}
-
 void UFlowNode_SimpleSpawn::ExecuteInput(const FName& PinName)
 {
 	if (IdentityTags.IsValid())
