@@ -11,22 +11,22 @@ struct FQuestSpawnParams
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditDefaultsOnly, Category = "Spawn")
+	UPROPERTY(EditAnywhere, Category = "Spawn")
 	TSubclassOf<AActor> ActorClass;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Spawn")
+	UPROPERTY(EditAnywhere, Category = "Spawn")
 	float ActorScale;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Spawn AI")
+	UPROPERTY(EditAnywhere, Category = "Spawn AI")
 	TSoftObjectPtr<UBehaviorTree> BehaviorTree;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Spawn AI")
+	UPROPERTY(EditAnywhere, Category = "Spawn AI")
 	TSubclassOf<UAnimInstance> AnimInstance;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Spawn AI")
+	UPROPERTY(EditAnywhere, Category = "Spawn AI")
 	UAnimationAsset* AnimationAsset;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Spawn AI")
+	UPROPERTY(EditAnywhere, Category = "Spawn AI")
 	bool bNoCollisionFail;
 
 	FQuestSpawnParams()

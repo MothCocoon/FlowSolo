@@ -13,21 +13,15 @@ class FLOWQUEST_API UFlowNode_SetInteractionState : public UFlowNode
 {
 	GENERATED_UCLASS_BODY()
 
-private:
+protected:
 	UPROPERTY(EditAnywhere, Category = "ObservedComponent")
 	FGameplayTagContainer IdentityTags;
 	
 protected:
-	virtual void PostLoad() override;
-	
 	virtual void ExecuteInput(const FName& PinName) override;
 
 #if WITH_EDITOR
 public:
 	virtual FString GetNodeDescription() const override;
 #endif
-
-private:
-	UPROPERTY()
-	FGameplayTag IdentityTag_DEPRECATED;
 };

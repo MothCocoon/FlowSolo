@@ -19,15 +19,10 @@ protected:
 
 	bool bReactOnOverlapping;
 
-	virtual void PostLoad() override;
-
 	virtual void ExecuteInput(const FName& PinName) override;
 	
 	virtual void ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component) override;
 	virtual void ForgetActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component) override;
 
 	virtual void OnTriggerEvent(const bool bOverlapping, UFlowComponent* OtherFlowComponent);
-
-private:
-	FGameplayTag OverlappedActorTag_DEPRECATED;
 };
