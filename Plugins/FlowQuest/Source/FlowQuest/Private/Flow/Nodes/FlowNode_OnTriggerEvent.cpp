@@ -12,16 +12,6 @@ UFlowNode_OnTriggerEvent::UFlowNode_OnTriggerEvent(const FObjectInitializer& Obj
 	}
 }
 
-void UFlowNode_OnTriggerEvent::PostLoad()
-{
-	Super::PostLoad();
-
-	if (OverlappedActorTag_DEPRECATED.IsValid())
-	{
-		OverlappedActorTags = FGameplayTagContainer(OverlappedActorTag_DEPRECATED);
-	}
-}
-
 void UFlowNode_OnTriggerEvent::ExecuteInput(const FName& PinName)
 {
 	if (OverlappedActorTags.IsValid())

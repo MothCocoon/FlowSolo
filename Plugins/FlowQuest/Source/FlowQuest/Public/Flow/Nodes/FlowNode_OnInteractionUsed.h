@@ -14,7 +14,7 @@ class FLOWQUEST_API UFlowNode_OnInteractionUsed : public UFlowNode_ComponentObse
 {
 	GENERATED_UCLASS_BODY()
 	
-private:
+protected:
 	TMap<TWeakObjectPtr<AActor>, TWeakObjectPtr<UInteractionComponent>> ObservedInteractions;
 
 protected:
