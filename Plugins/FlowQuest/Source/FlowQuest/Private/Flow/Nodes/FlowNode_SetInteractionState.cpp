@@ -13,16 +13,6 @@ UFlowNode_SetInteractionState::UFlowNode_SetInteractionState(const FObjectInitia
 	InputPins = { FFlowPin(TEXT("Enable")), FFlowPin(TEXT("Disable")) };
 }
 
-void UFlowNode_SetInteractionState::PostLoad()
-{
-	Super::PostLoad();
-
-	if (IdentityTag_DEPRECATED.IsValid())
-	{
-		IdentityTags = FGameplayTagContainer(IdentityTag_DEPRECATED);
-	}
-}
-
 void UFlowNode_SetInteractionState::ExecuteInput(const FName& PinName)
 {
 	for (const TWeakObjectPtr<UFlowComponent>& FoundComponent : GetFlowSubsystem()->GetComponents<UFlowComponent>(IdentityTags, EGameplayContainerMatchType::Any))
