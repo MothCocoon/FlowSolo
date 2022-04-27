@@ -19,6 +19,7 @@ public class FlowSolo : ModuleRules
             "CoreUObject",
             "DeveloperSettings",
             "Engine",
+            "EnhancedInput",
             "InputCore",
             "Slate",
             "SlateCore",
