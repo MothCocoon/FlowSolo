@@ -27,6 +27,12 @@ void ASoloPlayerController::SetupInputComponent()
 
 	// Exploration context
 	{
+		SoloInputComponent->BindAxis(MoveForwardInput, this, &ASoloPlayerController::MoveForward);
+		SoloInputComponent->BindAxis(MoveRightInput, this, &ASoloPlayerController::MoveRight);
+
+		SoloInputComponent->BindAxis(CameraPitchInput, this, &ASoloPlayerController::AddPitch);
+		SoloInputComponent->BindAxis(CameraYawInput, this, &ASoloPlayerController::AddYaw);
+		
 		SoloInputComponent->BindClick(InteractionInput, ETriggerEvent::Canceled, this, &ASoloPlayerController::OnInteractionUsed);
 	}
 }
@@ -42,6 +48,38 @@ void ASoloPlayerController::SetExplorationContext() const
 #endif
 
 		Subsystem->AddMappingContext(ExplorationContext, 1);
+	}
+}
+
+void ASoloPlayerController::MoveForward(const UInputAction* Action) const
+{
+	if (!IsMoveInputIgnored() && GetPawn())
+	{
+		GetPawn()->AddMovementInput(GetControlRotation().Vector(), SoloInputComponent->GetBoundActionValue(Action).Get<float>());
+	}
+}
+
+void ASoloPlayerController::MoveRight(const UInputAction* Action) const
+{
+	if (!IsMoveInputIgnored() && GetPawn())
+	{
+		GetPawn()->AddMovementInput(FRotationMatrix(GetControlRotation()).GetScaledAxis(EAxis::Y), SoloInputComponent->GetBoundActionValue(Action).Get<float>());
+	}
+}
+
+void ASoloPlayerController::AddPitch(const UInputAction* Action)
+{
+	if (!IsLookInputIgnored())
+	{
+		RotationInput.Pitch  = SoloInputComponent->GetBoundActionValue(Action).Get<float>();
+	}
+}
+
+void ASoloPlayerController::AddYaw(const UInputAction* Action)
+{
+	if (!IsLookInputIgnored())
+	{
+		RotationInput.Yaw = SoloInputComponent->GetBoundActionValue(Action).Get<float>();
 	}
 }
 
