@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameFramework/PlayerController.h"
-#include "QuestPlayerController.generated.h"
+#include "SoloPlayerController.generated.h"
 
 class UInteractionComponent;
 
@@ -9,7 +9,7 @@ class UInteractionComponent;
  *
  */
 UCLASS()
-class FLOWQUEST_API AQuestPlayerController : public APlayerController
+class FLOWSOLO_API ASoloPlayerController : public APlayerController
 {
 	GENERATED_UCLASS_BODY()
 
@@ -24,7 +24,7 @@ private:
 	void OnInteractionExit(const TWeakObjectPtr<UInteractionComponent> Interaction);
 
 	void ActivateInteraction(const TWeakObjectPtr<UInteractionComponent> Interaction);
-	void DectivateInteraction();
+	void DeactivateInteraction();
 	
 	UFUNCTION()
 	void OnInteractionUsed();

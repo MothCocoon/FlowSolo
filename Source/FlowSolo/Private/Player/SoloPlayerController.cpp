@@ -1,26 +1,26 @@
-#include "Player/QuestPlayerController.h"
+#include "Player/SoloPlayerController.h"
 #include "QuestSettings.h"
 
 #include "Components/InteractionComponent.h"
 #include "UI/QuestUIManager.h"
 
-AQuestPlayerController::AQuestPlayerController(const FObjectInitializer& ObjectInitializer)
+ASoloPlayerController::ASoloPlayerController(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	UInteractionComponent::OnPlayerEnter.AddUObject(this, &AQuestPlayerController::OnInteractionEnter);
-	UInteractionComponent::OnPlayerExit.AddUObject(this, &AQuestPlayerController::OnInteractionExit);
+	UInteractionComponent::OnPlayerEnter.AddUObject(this, &ASoloPlayerController::OnInteractionEnter);
+	UInteractionComponent::OnPlayerExit.AddUObject(this, &ASoloPlayerController::OnInteractionExit);
 }
 
-void AQuestPlayerController::SetupInputComponent()
+void ASoloPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 
-	InputComponent->BindAction("Interaction", IE_Released, this, &AQuestPlayerController::OnInteractionUsed);
+	InputComponent->BindAction("Interaction", IE_Released, this, &ASoloPlayerController::OnInteractionUsed);
 }
 
-void AQuestPlayerController::PlayerTick(float DeltaTime)
+void ASoloPlayerController::PlayerTick(float DeltaTime)
 {
 	Super::PlayerTick(DeltaTime);
 
@@ -41,43 +41,43 @@ void AQuestPlayerController::PlayerTick(float DeltaTime)
 	}
 	else if (ActiveInteraction.IsValid())
 	{
-		DectivateInteraction();
+		DeactivateInteraction();
 	}
 }
 
-void AQuestPlayerController::OnInteractionEnter(const TWeakObjectPtr<UInteractionComponent> Interaction)
+void ASoloPlayerController::OnInteractionEnter(const TWeakObjectPtr<UInteractionComponent> Interaction)
 {
 	PossibleInteractions.Add(Interaction);
 }
 
-void AQuestPlayerController::OnInteractionExit(const TWeakObjectPtr<UInteractionComponent> Interaction)
+void ASoloPlayerController::OnInteractionExit(const TWeakObjectPtr<UInteractionComponent> Interaction)
 {
 	if (ActiveInteraction.IsValid() && ActiveInteraction == Interaction)
 	{
-		DectivateInteraction();
+		DeactivateInteraction();
 	}
 	
 	PossibleInteractions.Remove(Interaction);
 }
 
-void AQuestPlayerController::ActivateInteraction(const TWeakObjectPtr<UInteractionComponent> Interaction)
+void ASoloPlayerController::ActivateInteraction(const TWeakObjectPtr<UInteractionComponent> Interaction)
 {
 	if (ActiveInteraction.IsValid())
 	{
-		DectivateInteraction();
+		DeactivateInteraction();
 	}
 	
 	ActiveInteraction = Interaction;
 	GetGameInstance()->GetSubsystem<UQuestUIManager>()->OpenWidget(UQuestSettings::Get()->InteractionWidget);
 }	
 
-void AQuestPlayerController::DectivateInteraction()
+void ASoloPlayerController::DeactivateInteraction()
 {
 	ActiveInteraction = nullptr;
 	GetGameInstance()->GetSubsystem<UQuestUIManager>()->CloseWidget(UQuestSettings::Get()->InteractionWidget);
 }
 
-void AQuestPlayerController::OnInteractionUsed()
+void ASoloPlayerController::OnInteractionUsed()
 {
 	if (ActiveInteraction.IsValid())
 	{
