@@ -12,6 +12,10 @@
 	],
 	"Plugins": [
 		{
+			"Name": "EnhancedInput",
+			"Enabled": true
+		},
+		{
 			"Name": "Flow",
 			"Enabled": true
 		},

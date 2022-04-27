@@ -9,7 +9,7 @@ class UUserWidget;
  *
  */
 UCLASS(Config = Game, defaultconfig, meta = (DisplayName = "Quest"))
-class UQuestSettings final : public UDeveloperSettings
+class FLOWQUEST_API UQuestSettings final : public UDeveloperSettings
 {
 	GENERATED_UCLASS_BODY()
 
