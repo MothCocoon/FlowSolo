@@ -3,7 +3,7 @@
 #include "FlowComponent.h"
 #include "FlowTriggerComponent.generated.h"
 
-DECLARE_MULTICAST_DELEGATE_TwoParams(FFlowTriggerComponentEvent, const bool /*bOverlapping*/, class UFlowComponent* /*OtherFlowComponent*/);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFlowTriggerComponentEvent, const bool, bOverlapping, class UFlowComponent*, OtherFlowComponent);
 
 /**
 * Trigger-specific Flow component - encapsulates communication between triggers and Flow graph
@@ -18,8 +18,10 @@ class FLOWQUEST_API UFlowTriggerComponent final : public UFlowComponent
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = "FlowTrigger")
 	bool bOverlapEnabled;
-	
+
+	UPROPERTY(BlueprintAssignable, Category = "FlowTrigger")
 	FFlowTriggerComponentEvent OnTriggerEvent;
+	
 	TArray<TWeakObjectPtr<UPrimitiveComponent>> CollisionComponents;
 
 protected:
