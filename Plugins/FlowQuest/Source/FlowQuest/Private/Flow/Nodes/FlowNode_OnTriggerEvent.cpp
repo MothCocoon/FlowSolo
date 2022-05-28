@@ -31,7 +31,7 @@ void UFlowNode_OnTriggerEvent::ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakO
 		if (UFlowTriggerComponent* FlowTriggerComponent = Cast<UFlowTriggerComponent>(Component))
 		{
 			RegisteredActors.Emplace(Actor, FlowTriggerComponent);
-			FlowTriggerComponent->OnTriggerEvent.AddUObject(this, &UFlowNode_OnTriggerEvent::OnTriggerEvent);
+			FlowTriggerComponent->OnTriggerEvent.AddDynamic(this, &UFlowNode_OnTriggerEvent::OnTriggerEvent);
 		}
 	}
 }
