@@ -24,5 +24,6 @@ protected:
 	virtual void ObserveActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component) override;
 	virtual void ForgetActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component) override;
 
+	UFUNCTION()
 	virtual void OnTriggerEvent(const bool bOverlapping, UFlowComponent* OtherFlowComponent);
 };
