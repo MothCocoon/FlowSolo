@@ -1,6 +1,6 @@
 ﻿#include "Core/FlowNode_SoloCheckpoint.h"
 #include "FlowSubsystem.h"
-#include "Core/SaveSubsystem.h"
+#include "Core/FlowSaveSubsystem.h"
 
 UFlowNode_SoloCheckpoint::UFlowNode_SoloCheckpoint(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -14,7 +14,7 @@ void UFlowNode_SoloCheckpoint::ExecuteInput(const FName& PinName)
 {
 	if (GetWorld())
 	{
-		if (USaveSubsystem* SaveSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<USaveSubsystem>())
+		if (UFlowSaveSubsystem* SaveSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UFlowSaveSubsystem>())
 		{
 			SaveSubsystem->SaveGame();
 		}

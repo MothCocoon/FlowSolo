@@ -1,19 +1,19 @@
 ﻿#pragma once
 
 #include "FlowSubsystem.h"
-#include "SaveSubsystem.generated.h"
+#include "FlowSaveSubsystem.generated.h"
 
 /**
  * Minimal logic, just enough for testing purposes
  * WORK IN PROGRESS
  */
 UCLASS()
-class USaveSubsystem final : public UFlowSubsystem, public FSelfRegisteringExec
+class UFlowSaveSubsystem final : public UFlowSubsystem, public FSelfRegisteringExec
 {
 	GENERATED_BODY()
 
-	USaveSubsystem();
-	
+	UFlowSaveSubsystem();
+
 public:
 	static FString CheckpointSlotName;
 
