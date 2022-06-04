@@ -1,22 +1,22 @@
-﻿#include "Core/SaveSubsystem.h"
+﻿#include "Core/FlowSaveSubsystem.h"
 
 #include "FlowWorldSettings.h"
 #include "GameFramework/GameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
-FString USaveSubsystem::CheckpointSlotName = TEXT("Checkpoint");
+FString UFlowSaveSubsystem::CheckpointSlotName = TEXT("Checkpoint");
 
-USaveSubsystem::USaveSubsystem()
+UFlowSaveSubsystem::UFlowSaveSubsystem()
 	: UFlowSubsystem()
 {
 }
 
-bool USaveSubsystem::Exec(UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar)
+bool UFlowSaveSubsystem::Exec(UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar)
 {
 	return HasAnyFlags(RF_ClassDefaultObject) ? false : ProcessConsoleExec(Cmd, Ar, nullptr);
 }
 
-void USaveSubsystem::SaveGame()
+void UFlowSaveSubsystem::SaveGame()
 {
 	USaveGame* NewSaveGame = UGameplayStatics::CreateSaveGameObject(UFlowSaveGame::StaticClass());
 	OnGameSaved(Cast<UFlowSaveGame>(NewSaveGame));
@@ -24,7 +24,7 @@ void USaveSubsystem::SaveGame()
 	UGameplayStatics::SaveGameToSlot(NewSaveGame, CheckpointSlotName, 0);
 }
 
-void USaveSubsystem::LoadGame()
+void UFlowSaveSubsystem::LoadGame()
 {
 	USaveGame* LoadedSave = UGameplayStatics::LoadGameFromSlot(CheckpointSlotName, 0);
 	if (LoadedSave)
