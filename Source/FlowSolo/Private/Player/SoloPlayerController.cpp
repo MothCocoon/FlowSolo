@@ -33,7 +33,7 @@ void ASoloPlayerController::SetupInputComponent()
 		SoloInputComponent->BindAxis(CameraPitchInput, this, &ASoloPlayerController::AddPitch);
 		SoloInputComponent->BindAxis(CameraYawInput, this, &ASoloPlayerController::AddYaw);
 		
-		SoloInputComponent->BindClick(InteractionInput, ETriggerEvent::Canceled, this, &ASoloPlayerController::OnInteractionUsed);
+		SoloInputComponent->BindClick(InteractionInput, ETriggerEvent::Started, this, &ASoloPlayerController::OnInteractionUsed);
 	}
 }
 
