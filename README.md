@@ -3,4 +3,4 @@ Tiny project showcasing how to utilize [Flow Graph](https://github.com/MothCocoo
 
 Work in progress!
 
-Beware, downloading this repo via the "Download ZIP" option might not work correctly since binary assets are stored under Git LFS. It's recommended to grab the project by cloning the repository.
+**Beware, downloading this repo via the "Download ZIP" option might not work correctly since binary assets are stored under Git LFS. It's recommended to grab the project by cloning the repository.**
