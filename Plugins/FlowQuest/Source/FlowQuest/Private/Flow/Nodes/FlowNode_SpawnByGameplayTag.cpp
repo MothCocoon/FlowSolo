@@ -1,18 +1,20 @@
-#include "Flow/Nodes/FlowNode_SimpleSpawn.h"
+// Copyright https://github.com/MothCocoon/FlowSolo/graphs/contributors
+
+#include "Flow/Nodes/FlowNode_SpawnByGameplayTag.h"
 #include "FlowSubsystem.h"
 
-UFlowNode_SimpleSpawn::UFlowNode_SimpleSpawn(const FObjectInitializer& ObjectInitializer)
+UFlowNode_SpawnByGameplayTag::UFlowNode_SpawnByGameplayTag(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 #if WITH_EDITOR
 	Category = TEXT("World");
 #endif
 
-	AddInputPins({TEXT("Spawn"), TEXT("Despawn")});
-	AddOutputPins({TEXT("Out"), TEXT("Spawned"), TEXT("Despawned")});
+	InputPins = {TEXT("Spawn"), TEXT("Despawn")};
+	OutputPins = {TEXT("Spawned"), TEXT("Despawned")};
 }
 
-void UFlowNode_SimpleSpawn::ExecuteInput(const FName& PinName)
+void UFlowNode_SpawnByGameplayTag::ExecuteInput(const FName& PinName)
 {
 	if (IdentityTags.IsValid())
 	{
@@ -68,13 +70,13 @@ void UFlowNode_SimpleSpawn::ExecuteInput(const FName& PinName)
 	TriggerFirstOutput(true);
 }
 
-void UFlowNode_SimpleSpawn::Cleanup()
+void UFlowNode_SpawnByGameplayTag::Cleanup()
 {
 	SpawnComponents.Empty();
 }
 
 #if WITH_EDITOR
-FString UFlowNode_SimpleSpawn::GetNodeDescription() const
+FString UFlowNode_SpawnByGameplayTag::GetNodeDescription() const
 {
 	const FString ClassString = SpawnParams.ActorClass ? SpawnParams.ActorClass->GetFName().ToString() : TEXT("Missing Actor Class!");
 	return GetIdentityTagsDescription(IdentityTags) + LINE_TERMINATOR + ClassString;
