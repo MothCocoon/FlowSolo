@@ -2,7 +2,3 @@
 	path = Plugins/FlowGraph
 	url = https://github.com/MothCocoon/FlowGraph.git
 	branch = main
-[submodule "Plugins/SubsystemBrowser"]
-	path = Plugins/SubsystemBrowser
-	url = https://github.com/MothCocoon/SubsystemBrowser.git
-	branch = main
