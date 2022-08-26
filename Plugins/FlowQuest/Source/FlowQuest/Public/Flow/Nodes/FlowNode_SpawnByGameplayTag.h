@@ -1,3 +1,5 @@
+// Copyright https://github.com/MothCocoon/FlowSolo/graphs/contributors
+
 #pragma once
 
 #include "GameplayTagContainer.h"
@@ -5,13 +7,13 @@
 #include "Nodes/FlowNode.h"
 
 #include "Components/SpawnComponent.h"
-#include "FlowNode_SimpleSpawn.generated.h"
+#include "FlowNode_SpawnByGameplayTag.generated.h"
 
 /**
- * Simple Spawn
+ * Spawn by Gameplay Tag
  */
-UCLASS(NotBlueprintable, meta = (DisplayName = "Simple Spawn"))
-class FLOWQUEST_API UFlowNode_SimpleSpawn : public UFlowNode
+UCLASS(NotBlueprintable, meta = (DisplayName = "Spawn by Gameplay Tag"))
+class FLOWQUEST_API UFlowNode_SpawnByGameplayTag : public UFlowNode
 {
 	GENERATED_UCLASS_BODY()
 
