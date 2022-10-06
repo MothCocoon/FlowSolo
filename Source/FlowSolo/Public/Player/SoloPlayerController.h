@@ -38,17 +38,17 @@ public:
 	UInputAction* CameraYawInput;
 
 private:
-	TWeakObjectPtr<class USoloInputComponent> SoloInputComponent;
+	TWeakObjectPtr<class UEnhancedInputComponent> SoloInputComponent;
 	
 public:
 	virtual void SetupInputComponent() override;
 	void SetExplorationContext() const;
 
-	void MoveForward(const UInputAction* Action) const;
-	void MoveRight(const UInputAction* Action) const;
+	void MoveForward(UInputAction* Action);
+	void MoveRight(UInputAction* Action);
 
-	void AddPitch(const UInputAction* Action);
-	void AddYaw(const UInputAction* Action);
+	void AddPitch(UInputAction* Action);
+	void AddYaw(UInputAction* Action);
 
 	virtual void PlayerTick(float DeltaTime) override;
 
@@ -61,6 +61,6 @@ private:
 
 	void ActivateInteraction(const TWeakObjectPtr<UInteractionComponent> Interaction);
 	void DeactivateInteraction();
-	
-	void OnInteractionUsed() const;
+
+	void OnInteractionUsed();
 };

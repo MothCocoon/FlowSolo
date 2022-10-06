@@ -1,10 +1,10 @@
 #include "Player/SoloPlayerController.h"
-#include "Player/SoloInputComponent.h"
 
 #include "Components/InteractionComponent.h"
 #include "QuestSettings.h"
 #include "UI/QuestUIManager.h"
 
+#include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
 ASoloPlayerController::ASoloPlayerController(const FObjectInitializer& ObjectInitializer)
@@ -22,18 +22,39 @@ void ASoloPlayerController::SetupInputComponent()
 
 	SetExplorationContext();
 
-	SoloInputComponent = Cast<USoloInputComponent>(InputComponent);
+	SoloInputComponent = Cast<UEnhancedInputComponent>(InputComponent);
 	check(SoloInputComponent.IsValid());
 
 	// Exploration context
 	{
-		SoloInputComponent->BindAxis(MoveForwardInput, this, &ASoloPlayerController::MoveForward);
-		SoloInputComponent->BindAxis(MoveRightInput, this, &ASoloPlayerController::MoveRight);
+		if (MoveForwardInput)
+		{
+			SoloInputComponent->BindActionValue(MoveForwardInput);
+			SoloInputComponent->BindAction(MoveForwardInput, ETriggerEvent::Triggered, this, &ASoloPlayerController::MoveForward, MoveForwardInput);
+		}
 
-		SoloInputComponent->BindAxis(CameraPitchInput, this, &ASoloPlayerController::AddPitch);
-		SoloInputComponent->BindAxis(CameraYawInput, this, &ASoloPlayerController::AddYaw);
-		
-		SoloInputComponent->BindClick(InteractionInput, ETriggerEvent::Started, this, &ASoloPlayerController::OnInteractionUsed);
+		if (MoveRightInput)
+		{
+			SoloInputComponent->BindActionValue(MoveRightInput);
+			SoloInputComponent->BindAction(MoveRightInput, ETriggerEvent::Triggered, this, &ASoloPlayerController::MoveRight, MoveRightInput);
+		}
+
+		if (CameraPitchInput)
+		{
+			SoloInputComponent->BindActionValue(CameraPitchInput);
+			SoloInputComponent->BindAction(CameraPitchInput, ETriggerEvent::Triggered, this, &ASoloPlayerController::AddPitch, CameraPitchInput);
+		}
+
+		if (CameraYawInput)
+		{
+			SoloInputComponent->BindActionValue(CameraYawInput);
+			SoloInputComponent->BindAction(CameraYawInput, ETriggerEvent::Triggered, this, &ASoloPlayerController::AddYaw, CameraYawInput);
+		}
+
+		if (InteractionInput)
+		{
+			SoloInputComponent->BindAction(InteractionInput, ETriggerEvent::Started, this, &ASoloPlayerController::OnInteractionUsed);
+		}
 	}
 }
 
@@ -51,7 +72,7 @@ void ASoloPlayerController::SetExplorationContext() const
 	}
 }
 
-void ASoloPlayerController::MoveForward(const UInputAction* Action) const
+void ASoloPlayerController::MoveForward(UInputAction* Action)
 {
 	if (!IsMoveInputIgnored() && GetPawn())
 	{
@@ -59,7 +80,7 @@ void ASoloPlayerController::MoveForward(const UInputAction* Action) const
 	}
 }
 
-void ASoloPlayerController::MoveRight(const UInputAction* Action) const
+void ASoloPlayerController::MoveRight(UInputAction* Action)
 {
 	if (!IsMoveInputIgnored() && GetPawn())
 	{
@@ -67,15 +88,15 @@ void ASoloPlayerController::MoveRight(const UInputAction* Action) const
 	}
 }
 
-void ASoloPlayerController::AddPitch(const UInputAction* Action)
+void ASoloPlayerController::AddPitch(UInputAction* Action)
 {
 	if (!IsLookInputIgnored())
 	{
-		RotationInput.Pitch  = SoloInputComponent->GetBoundActionValue(Action).Get<float>();
+		RotationInput.Pitch = SoloInputComponent->GetBoundActionValue(Action).Get<float>();
 	}
 }
 
-void ASoloPlayerController::AddYaw(const UInputAction* Action)
+void ASoloPlayerController::AddYaw(UInputAction* Action)
 {
 	if (!IsLookInputIgnored())
 	{
@@ -140,7 +161,7 @@ void ASoloPlayerController::DeactivateInteraction()
 	GetGameInstance()->GetSubsystem<UQuestUIManager>()->CloseWidget(UQuestSettings::Get()->InteractionWidget);
 }
 
-void ASoloPlayerController::OnInteractionUsed() const
+void ASoloPlayerController::OnInteractionUsed()
 {
 	if (ActiveInteraction.IsValid())
 	{
