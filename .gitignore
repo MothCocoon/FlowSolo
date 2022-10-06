@@ -19,3 +19,4 @@
 *.sln
 *.target
 *.user
+*.vsconfig
