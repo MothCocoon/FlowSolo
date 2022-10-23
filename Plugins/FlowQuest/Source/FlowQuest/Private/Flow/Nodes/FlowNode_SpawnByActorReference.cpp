@@ -69,8 +69,6 @@ void UFlowNode_SpawnByActorReference::ExecuteInput(const FName& PinName)
 	{
 		LogError(MissingIdentityTag);
 	}
-
-	TriggerFirstOutput(true);
 }
 
 void UFlowNode_SpawnByActorReference::Cleanup()
