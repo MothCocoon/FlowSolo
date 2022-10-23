@@ -30,10 +30,13 @@ void UInteractionComponent::BeginPlay()
 
 void UInteractionComponent::Enable()
 {
-	bEnabled = true;
-	
-	CameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
-	PrimaryComponentTick.SetTickFunctionEnable(true);
+	if (const APlayerController* PlayerController = GetWorld()->GetFirstPlayerController())
+	{
+		bEnabled = true;
+
+		CameraManager = PlayerController->PlayerCameraManager;
+		PrimaryComponentTick.SetTickFunctionEnable(true);
+	}
 }
 
 void UInteractionComponent::Disable()
@@ -43,9 +46,9 @@ void UInteractionComponent::Disable()
 		bCanInteract = false;
 		OnPlayerExit.Broadcast(this);
 	}
-	
+
 	bEnabled = false;
-	
+
 	PrimaryComponentTick.SetTickFunctionEnable(false);
 	CameraManager = nullptr;
 }
