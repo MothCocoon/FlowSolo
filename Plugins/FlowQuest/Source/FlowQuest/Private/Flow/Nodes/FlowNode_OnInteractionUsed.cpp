@@ -28,7 +28,7 @@ void UFlowNode_OnInteractionUsed::ObserveActor(TWeakObjectPtr<AActor> Actor, TWe
 void UFlowNode_OnInteractionUsed::ForgetActor(TWeakObjectPtr<AActor> Actor, TWeakObjectPtr<UFlowComponent> Component)
 {
 	ensureAlways(ObservedInteractions.Contains(Component->GetOwner()));
-	TWeakObjectPtr<UInteractionComponent> InteractionComponent = ObservedInteractions[Component->GetOwner()];
+	const TWeakObjectPtr<UInteractionComponent> InteractionComponent = ObservedInteractions[Component->GetOwner()];
 	
 	InteractionComponent->OnUsed.RemoveAll(this);
 }
