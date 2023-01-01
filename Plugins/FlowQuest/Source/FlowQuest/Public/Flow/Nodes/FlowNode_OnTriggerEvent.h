@@ -26,4 +26,9 @@ protected:
 
 	UFUNCTION()
 	virtual void OnTriggerEvent(const bool bOverlapping, UFlowComponent* OtherFlowComponent);
+
+public:
+#if WITH_EDITOR
+	virtual EDataValidationResult ValidateNode() override;
+#endif
 };

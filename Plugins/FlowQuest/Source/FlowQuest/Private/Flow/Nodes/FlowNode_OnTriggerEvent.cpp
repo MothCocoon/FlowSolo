@@ -51,3 +51,22 @@ void UFlowNode_OnTriggerEvent::OnTriggerEvent(const bool bOverlapping, UFlowComp
 		OnEventReceived();
 	}
 }
+
+EDataValidationResult UFlowNode_OnTriggerEvent::ValidateNode()
+{
+	if (IdentityTags.IsEmpty() || OverlappedActorTags.IsEmpty())
+	{
+		if (IdentityTags.IsEmpty())
+		{
+			Log.Error<UFlowNode>(*UFlowNode::MissingIdentityTag, this);
+		}
+		if (OverlappedActorTags.IsEmpty())
+		{
+			Log.Error<UFlowNode>(TEXT("Overlapped Actor Tag is missing!"), this);
+		}
+		
+		return EDataValidationResult::Invalid;
+	}
+
+	return EDataValidationResult::Valid;
+}
