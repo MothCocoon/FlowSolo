@@ -52,6 +52,7 @@ void UFlowNode_OnTriggerEvent::OnTriggerEvent(const bool bOverlapping, UFlowComp
 	}
 }
 
+#if WITH_EDITOR
 EDataValidationResult UFlowNode_OnTriggerEvent::ValidateNode()
 {
 	if (IdentityTags.IsEmpty() || OverlappedActorTags.IsEmpty())
@@ -70,3 +71,4 @@ EDataValidationResult UFlowNode_OnTriggerEvent::ValidateNode()
 
 	return EDataValidationResult::Valid;
 }
+#endif
