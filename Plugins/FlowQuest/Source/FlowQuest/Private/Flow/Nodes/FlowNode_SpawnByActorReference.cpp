@@ -1,7 +1,6 @@
 // Copyright https://github.com/MothCocoon/FlowSolo/graphs/contributors
 
 #include "Flow/Nodes/FlowNode_SpawnByActorReference.h"
-#include "FlowSubsystem.h"
 
 UFlowNode_SpawnByActorReference::UFlowNode_SpawnByActorReference(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -81,5 +80,24 @@ FString UFlowNode_SpawnByActorReference::GetNodeDescription() const
 {
 	const FString ClassString = SpawnParams.ActorClass ? SpawnParams.ActorClass->GetFName().ToString() : TEXT("Missing Actor Class!");
 	return (SpawnPoints.Num() > 0 ? FString::Printf(TEXT("%d spawn points"), SpawnPoints.Num()) : TEXT("No spawn points!")) + LINE_TERMINATOR + ClassString;
+}
+
+EDataValidationResult UFlowNode_SpawnByActorReference::ValidateNode()
+{
+	if (SpawnPoints.Num() == 0 || SpawnParams.ActorClass == nullptr)
+	{
+		if (SpawnPoints.Num() == 0)
+		{
+			Log.Error<UFlowNode>(TEXT("No Spawn Points assigned"), this);
+		}
+		if (SpawnParams.ActorClass == nullptr)
+		{
+			Log.Error<UFlowNode>(TEXT("Actor Class is missing or invalid"), this);
+		}
+
+		return EDataValidationResult::Invalid;
+	}
+
+	return EDataValidationResult::Valid;
 }
 #endif

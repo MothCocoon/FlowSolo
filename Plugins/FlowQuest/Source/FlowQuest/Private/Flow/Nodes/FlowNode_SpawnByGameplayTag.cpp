@@ -81,4 +81,23 @@ FString UFlowNode_SpawnByGameplayTag::GetNodeDescription() const
 	const FString ClassString = SpawnParams.ActorClass ? SpawnParams.ActorClass->GetFName().ToString() : TEXT("Missing Actor Class!");
 	return GetIdentityTagsDescription(IdentityTags) + LINE_TERMINATOR + ClassString;
 }
+
+EDataValidationResult UFlowNode_SpawnByGameplayTag::ValidateNode()
+{
+	if (IdentityTags.IsEmpty() || SpawnParams.ActorClass == nullptr)
+	{
+		if (IdentityTags.IsEmpty())
+		{
+			Log.Error<UFlowNode>(*UFlowNode::MissingIdentityTag, this);
+		}
+		if (SpawnParams.ActorClass == nullptr)
+		{
+			Log.Error<UFlowNode>(TEXT("Actor Class is missing or invalid"), this);
+		}
+
+		return EDataValidationResult::Invalid;
+	}
+
+	return EDataValidationResult::Valid;
+}
 #endif

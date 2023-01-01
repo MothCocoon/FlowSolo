@@ -40,4 +40,15 @@ FString UFlowNode_SetInteractionState::GetNodeDescription() const
 {
 	return GetIdentityTagsDescription(IdentityTags);
 }
+
+EDataValidationResult UFlowNode_SetInteractionState::ValidateNode()
+{
+	if (IdentityTags.IsEmpty())
+	{
+		Log.Error<UFlowNode>(*UFlowNode::MissingIdentityTag, this);
+		return EDataValidationResult::Invalid;
+	}
+
+	return EDataValidationResult::Valid;
+}
 #endif
