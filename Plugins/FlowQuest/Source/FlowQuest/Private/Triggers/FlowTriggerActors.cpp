@@ -40,7 +40,7 @@ void AFlowTriggerBox::EditorApplyScale(const FVector& DeltaScale, const FVector*
 	{
 		// CTRL+Scaling modifies trigger collision height.  This is for convenience, so that height
 		// can be changed without having to use the non-uniform scaling widget (which is
-		// inaccessable with spacebar widget cycling).
+		// inaccessible with spacebar widget cycling).
 		FVector Extent = BoxComponent->GetUnscaledBoxExtent() + FVector(0, 0, ModifiedScale.X);
 		Extent.Z = FMath::Max(0.0f, Extent.Z);
 		BoxComponent->SetBoxExtent(Extent);

@@ -2,28 +2,28 @@ using UnrealBuildTool;
 
 public class FlowSolo : ModuleRules
 {
-    public FlowSolo(ReadOnlyTargetRules Target) : base(Target)
-    {
-        bUseUnity = false;
-        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+	public FlowSolo(ReadOnlyTargetRules target) : base(target)
+	{
+		bUseUnity = false;
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        PublicDependencyModuleNames.AddRange(new[]
-        {
-            "Flow",
-            "FlowQuest"
-        });
+		PublicDependencyModuleNames.AddRange(new[]
+		{
+			"Flow",
+			"FlowQuest"
+		});
 
-        PrivateDependencyModuleNames.AddRange(new[]
-        {
-            "Core",
-            "CoreUObject",
-            "DeveloperSettings",
-            "Engine",
-            "EnhancedInput",
-            "InputCore",
-            "Slate",
-            "SlateCore",
-            "UMG"
-        });
-    }
+		PrivateDependencyModuleNames.AddRange(new[]
+		{
+			"Core",
+			"CoreUObject",
+			"DeveloperSettings",
+			"Engine",
+			"EnhancedInput",
+			"InputCore",
+			"Slate",
+			"SlateCore",
+			"UMG"
+		});
+	}
 }

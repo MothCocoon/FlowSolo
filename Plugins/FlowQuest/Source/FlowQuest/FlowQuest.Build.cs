@@ -2,26 +2,26 @@ using UnrealBuildTool;
 
 public class FlowQuest : ModuleRules
 {
-	public FlowQuest(ReadOnlyTargetRules Target) : base(Target)
+	public FlowQuest(ReadOnlyTargetRules target) : base(target)
 	{
-        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        PublicDependencyModuleNames.AddRange(new string[]
-        {
-	        "Flow"
-        });
-        
-		PrivateDependencyModuleNames.AddRange(new[] 
+		PublicDependencyModuleNames.AddRange(new[]
 		{
-            "AIModule",
-            "Core",
+			"Flow"
+		});
+
+		PrivateDependencyModuleNames.AddRange(new[]
+		{
+			"AIModule",
+			"Core",
 			"CoreUObject",
-            "DeveloperSettings",
+			"DeveloperSettings",
 			"Engine",
-            "GameplayTags",
-            "Slate",
-            "SlateCore",
-            "UMG"
-        });
-    }
+			"GameplayTags",
+			"Slate",
+			"SlateCore",
+			"UMG"
+		});
+	}
 }
