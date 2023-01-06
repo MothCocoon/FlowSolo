@@ -52,11 +52,11 @@ private:
 public:
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
-	bool Spawn(FQuestSpawnParams& SpawnParams);
+	bool Spawn(const FQuestSpawnParams& SpawnParams);
 	void Despawn();
 
 private:
-	void SetAnimationOnSpawnedMesh(USkeletalMeshComponent* SkeletalMeshComponent, const FQuestSpawnParams& SpawnParams) const;
+	static void SetAnimationOnSpawnedMesh(USkeletalMeshComponent* SkeletalMeshComponent, const FQuestSpawnParams& SpawnParams);
 
 	template<typename T>
 	T* LoadAsset(TSoftObjectPtr<UObject> AssetPtr)

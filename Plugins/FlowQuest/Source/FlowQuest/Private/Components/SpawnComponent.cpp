@@ -19,7 +19,7 @@ void USpawnComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	Super::EndPlay(EndPlayReason);
 }
 
-bool USpawnComponent::Spawn(FQuestSpawnParams& SpawnParams)
+bool USpawnComponent::Spawn(const FQuestSpawnParams& SpawnParams)
 {
 	if (SpawnParams.ActorClass->IsChildOf(APawn::StaticClass()))
 	{
@@ -64,7 +64,7 @@ void USpawnComponent::Despawn()
 	SpawnedActor = nullptr;
 }
 
-void USpawnComponent::SetAnimationOnSpawnedMesh(USkeletalMeshComponent* SkeletalMeshComponent, const FQuestSpawnParams& SpawnParams) const
+void USpawnComponent::SetAnimationOnSpawnedMesh(USkeletalMeshComponent* SkeletalMeshComponent, const FQuestSpawnParams& SpawnParams)
 {
 	if (SpawnParams.AnimInstance)
 	{
