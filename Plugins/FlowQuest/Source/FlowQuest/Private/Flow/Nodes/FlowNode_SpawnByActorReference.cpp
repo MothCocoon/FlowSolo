@@ -88,11 +88,11 @@ EDataValidationResult UFlowNode_SpawnByActorReference::ValidateNode()
 	{
 		if (SpawnPoints.Num() == 0)
 		{
-			Log.Error<UFlowNode>(TEXT("No Spawn Points assigned"), this);
+			ValidationLog.Error<UFlowNode>(TEXT("No Spawn Points assigned"), this);
 		}
 		if (SpawnParams.ActorClass == nullptr)
 		{
-			Log.Error<UFlowNode>(TEXT("Actor Class is missing or invalid"), this);
+			ValidationLog.Error<UFlowNode>(TEXT("Actor Class is missing or invalid"), this);
 		}
 
 		return EDataValidationResult::Invalid;

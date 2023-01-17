@@ -88,11 +88,11 @@ EDataValidationResult UFlowNode_SpawnByGameplayTag::ValidateNode()
 	{
 		if (IdentityTags.IsEmpty())
 		{
-			Log.Error<UFlowNode>(*UFlowNode::MissingIdentityTag, this);
+			ValidationLog.Error<UFlowNode>(*UFlowNode::MissingIdentityTag, this);
 		}
 		if (SpawnParams.ActorClass == nullptr)
 		{
-			Log.Error<UFlowNode>(TEXT("Actor Class is missing or invalid"), this);
+			ValidationLog.Error<UFlowNode>(TEXT("Actor Class is missing or invalid"), this);
 		}
 
 		return EDataValidationResult::Invalid;
