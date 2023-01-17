@@ -59,11 +59,11 @@ EDataValidationResult UFlowNode_OnTriggerEvent::ValidateNode()
 	{
 		if (IdentityTags.IsEmpty())
 		{
-			Log.Error<UFlowNode>(*UFlowNode::MissingIdentityTag, this);
+			ValidationLog.Error<UFlowNode>(*UFlowNode::MissingIdentityTag, this);
 		}
 		if (OverlappedActorTags.IsEmpty())
 		{
-			Log.Error<UFlowNode>(TEXT("Overlapped Actor Tag is missing!"), this);
+			ValidationLog.Error<UFlowNode>(TEXT("Overlapped Actor Tag is missing!"), this);
 		}
 		
 		return EDataValidationResult::Invalid;
