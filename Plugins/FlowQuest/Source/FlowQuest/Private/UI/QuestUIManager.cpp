@@ -1,4 +1,6 @@
 #include "UI/QuestUIManager.h"
+
+#include "Blueprint/UserWidget.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 
 UQuestUIManager::UQuestUIManager()
