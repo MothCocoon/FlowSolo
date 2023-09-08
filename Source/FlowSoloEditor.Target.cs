@@ -12,6 +12,6 @@ public class FlowSoloEditorTarget : TargetRules
 			"FlowSolo"
 		});
 
-        DefaultBuildSettings = BuildSettingsVersion.V2;
+        DefaultBuildSettings = BuildSettingsVersion.V4;
     }
 }
