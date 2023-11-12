@@ -3,6 +3,7 @@
 
 #include "Components/BrushComponent.h"
 #include "Components/ShapeComponent.h"
+#include "TimerManager.h"
 
 UFlowTriggerComponent::UFlowTriggerComponent(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)

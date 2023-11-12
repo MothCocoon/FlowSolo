@@ -1,5 +1,6 @@
 #include "Components/InteractionComponent.h"
 #include "Camera/PlayerCameraManager.h"
+#include "Engine/World.h"
 
 FPlayerInInteractionEvent UInteractionComponent::OnPlayerEnter;
 FPlayerInInteractionEvent UInteractionComponent::OnPlayerExit;
