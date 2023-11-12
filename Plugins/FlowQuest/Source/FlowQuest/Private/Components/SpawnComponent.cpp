@@ -1,6 +1,10 @@
 #include "Components/SpawnComponent.h"
 
+#include "Animation/AnimInstance.h"
+#include "BehaviorTree/BehaviorTree.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Engine/World.h"
 #include "GameFramework/Character.h"
 
 USpawnComponent::USpawnComponent(const FObjectInitializer& ObjectInitializer)

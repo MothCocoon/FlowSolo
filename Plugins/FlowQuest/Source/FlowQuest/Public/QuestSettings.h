@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Engine/DeveloperSettings.h"
+#include "Templates/SubclassOf.h"
 #include "QuestSettings.generated.h"
 
 class UUserWidget;

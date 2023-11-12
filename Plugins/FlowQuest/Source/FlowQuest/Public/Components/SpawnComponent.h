@@ -1,10 +1,13 @@
 #pragma once
 
-#include "BehaviorTree/BehaviorTree.h"
 #include "Components/ArrowComponent.h"
 #include "Engine/StreamableManager.h"
 
 #include "SpawnComponent.generated.h"
+
+class UAnimationAsset;
+class UAnimInstance;
+class UBehaviorTree;
 
 USTRUCT()
 struct FQuestSpawnParams
