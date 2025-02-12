@@ -15,5 +15,5 @@ class FLOWQUEST_API AFlowTriggerVolume : public AVolume
 
 private:
 	UPROPERTY(Category = FlowTriggerBase, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	UFlowTriggerComponent* FlowTriggerComponent;
+	TObjectPtr<UFlowTriggerComponent> FlowTriggerComponent;
 };

@@ -20,7 +20,7 @@ public:
 	
 private:
 	UPROPERTY()
-	TMap<TSubclassOf<UUserWidget>, UUserWidget*> OpenedWidgets;
+	TMap<TSubclassOf<UUserWidget>, TObjectPtr<UUserWidget>> OpenedWidgets;
 
 	UPROPERTY()
 	TArray<TSubclassOf<UUserWidget>> HiddenWidgets;

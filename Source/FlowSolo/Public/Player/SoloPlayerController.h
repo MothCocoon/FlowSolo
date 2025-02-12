@@ -16,26 +16,26 @@ class FLOWSOLO_API ASoloPlayerController : public APlayerController
 
 public:	
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	UInputMappingContext* ExplorationContext;
+	TObjectPtr<UInputMappingContext> ExplorationContext;
 
 	// Contains debug inputs, inactive in Shipping builds
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	UInputMappingContext* DebugContext;
+	TObjectPtr<UInputMappingContext> DebugContext;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	UInputAction* InteractionInput;
+	TObjectPtr<UInputAction> InteractionInput;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	UInputAction* MoveForwardInput;
+	TObjectPtr<UInputAction> MoveForwardInput;
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	UInputAction* MoveRightInput;
+	TObjectPtr<UInputAction> MoveRightInput;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	UInputAction* CameraPitchInput;
+	TObjectPtr<UInputAction> CameraPitchInput;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	UInputAction* CameraYawInput;
+	TObjectPtr<UInputAction> CameraYawInput;
 
 private:
 	TWeakObjectPtr<class UEnhancedInputComponent> SoloInputComponent;

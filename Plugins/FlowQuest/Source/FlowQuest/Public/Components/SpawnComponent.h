@@ -27,7 +27,7 @@ struct FQuestSpawnParams
 	TSubclassOf<UAnimInstance> AnimInstance;
 
 	UPROPERTY(EditAnywhere, Category = "Spawn AI")
-	UAnimationAsset* AnimationAsset;
+	TObjectPtr<UAnimationAsset> AnimationAsset;
 
 	UPROPERTY(EditAnywhere, Category = "Spawn AI")
 	bool bNoCollisionFail;

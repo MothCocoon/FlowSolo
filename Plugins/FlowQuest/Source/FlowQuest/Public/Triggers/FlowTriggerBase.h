@@ -16,14 +16,14 @@ class AFlowTriggerBase : public AActor
 
 private:
 	UPROPERTY(Category = FlowTriggerBase, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	UFlowTriggerComponent* FlowTriggerComponent;
+	TObjectPtr<UFlowTriggerComponent> FlowTriggerComponent;
 	
 	UPROPERTY(Category = FlowTriggerBase, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	UShapeComponent* CollisionComponent;
+	TObjectPtr<UShapeComponent> CollisionComponent;
 
 #if WITH_EDITORONLY_DATA
 	UPROPERTY()
-	UBillboardComponent* SpriteComponent;
+	TObjectPtr<UBillboardComponent> SpriteComponent;
 #endif
 
 public:

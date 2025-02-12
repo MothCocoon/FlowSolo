@@ -10,7 +10,8 @@ public class FlowSoloEditorTarget : TargetRules
 
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
-
+		NativePointerMemberBehaviorOverride = PointerMemberBehavior.Disallow;
+		
 		ExtraModuleNames.AddRange(new[]
 		{ 
 			"FlowSolo"

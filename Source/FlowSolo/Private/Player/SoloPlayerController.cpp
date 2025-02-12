@@ -30,25 +30,25 @@ void ASoloPlayerController::SetupInputComponent()
 		if (MoveForwardInput)
 		{
 			SoloInputComponent->BindActionValue(MoveForwardInput);
-			SoloInputComponent->BindAction(MoveForwardInput, ETriggerEvent::Triggered, this, &ASoloPlayerController::MoveForward, MoveForwardInput);
+			SoloInputComponent->BindAction(MoveForwardInput.Get(), ETriggerEvent::Triggered, this, &ASoloPlayerController::MoveForward, MoveForwardInput.Get());
 		}
 
 		if (MoveRightInput)
 		{
 			SoloInputComponent->BindActionValue(MoveRightInput);
-			SoloInputComponent->BindAction(MoveRightInput, ETriggerEvent::Triggered, this, &ASoloPlayerController::MoveRight, MoveRightInput);
+			SoloInputComponent->BindAction(MoveRightInput.Get(), ETriggerEvent::Triggered, this, &ASoloPlayerController::MoveRight, MoveRightInput.Get());
 		}
 
 		if (CameraPitchInput)
 		{
 			SoloInputComponent->BindActionValue(CameraPitchInput);
-			SoloInputComponent->BindAction(CameraPitchInput, ETriggerEvent::Triggered, this, &ASoloPlayerController::AddPitch, CameraPitchInput);
+			SoloInputComponent->BindAction(CameraPitchInput.Get(), ETriggerEvent::Triggered, this, &ASoloPlayerController::AddPitch, CameraPitchInput.Get());
 		}
 
 		if (CameraYawInput)
 		{
 			SoloInputComponent->BindActionValue(CameraYawInput);
-			SoloInputComponent->BindAction(CameraYawInput, ETriggerEvent::Triggered, this, &ASoloPlayerController::AddYaw, CameraYawInput);
+			SoloInputComponent->BindAction(CameraYawInput.Get(), ETriggerEvent::Triggered, this, &ASoloPlayerController::AddYaw, CameraYawInput.Get());
 		}
 
 		if (InteractionInput)
