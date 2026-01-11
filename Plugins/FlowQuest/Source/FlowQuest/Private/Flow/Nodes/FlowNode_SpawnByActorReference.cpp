@@ -9,8 +9,8 @@ UFlowNode_SpawnByActorReference::UFlowNode_SpawnByActorReference(const FObjectIn
 	Category = TEXT("Actor");
 #endif
 
-	InputPins = {TEXT("Spawn"), TEXT("Despawn")};
-	OutputPins = {TEXT("Spawned"), TEXT("Despawned")};
+	InputPins = {FFlowPin(TEXT("Spawn")), FFlowPin(TEXT("Despawn"))};
+	OutputPins = {FFlowPin(TEXT("Spawned")), FFlowPin(TEXT("Despawned"))};
 }
 
 void UFlowNode_SpawnByActorReference::ExecuteInput(const FName& PinName)

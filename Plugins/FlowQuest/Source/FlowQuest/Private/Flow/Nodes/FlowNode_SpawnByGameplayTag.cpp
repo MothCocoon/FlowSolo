@@ -10,8 +10,8 @@ UFlowNode_SpawnByGameplayTag::UFlowNode_SpawnByGameplayTag(const FObjectInitiali
 	Category = TEXT("Actor");
 #endif
 
-	InputPins = {TEXT("Spawn"), TEXT("Despawn")};
-	OutputPins = {TEXT("Spawned"), TEXT("Despawned")};
+	InputPins = {FFlowPin(TEXT("Spawn")), FFlowPin(TEXT("Despawn"))};
+	OutputPins = {FFlowPin(TEXT("Spawned")), FFlowPin(TEXT("Despawned"))};
 }
 
 void UFlowNode_SpawnByGameplayTag::ExecuteInput(const FName& PinName)
