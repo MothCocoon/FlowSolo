@@ -1,7 +1,7 @@
 // Copyright https://github.com/MothCocoon/FlowGame/graphs/contributors
 
 #include "Flow/Nodes/FlowNode_OnInteractionUsed.h"
-#include "Components/InteractionComponent.h"
+#include "Gameplay/InteractionComponent.h"
 
 #include "FlowComponent.h"
 

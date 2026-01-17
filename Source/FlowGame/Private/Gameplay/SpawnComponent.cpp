@@ -1,6 +1,6 @@
 // Copyright https://github.com/MothCocoon/FlowGame/graphs/contributors
 
-#include "Components/SpawnComponent.h"
+#include "Gameplay/SpawnComponent.h"
 
 #include "Animation/AnimInstance.h"
 #include "BehaviorTree/BehaviorTree.h"

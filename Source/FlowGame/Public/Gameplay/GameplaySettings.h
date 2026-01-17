@@ -2,16 +2,15 @@
 #pragma once
 
 #include "Engine/DeveloperSettings.h"
-#include "Templates/SubclassOf.h"
-#include "FlowGameSettings.generated.h"
+#include "GameplaySettings.generated.h"
 
 class UUserWidget;
 
 /**
  *
  */
-UCLASS(Config = Game, defaultconfig, meta = (DisplayName = "Flow Game"))
-class  UFlowGameSettings final : public UDeveloperSettings
+UCLASS(Config = Game, defaultconfig, meta = (DisplayName = "Gameplay"))
+class  UGameplaySettings final : public UDeveloperSettings
 {
 	GENERATED_UCLASS_BODY()
 

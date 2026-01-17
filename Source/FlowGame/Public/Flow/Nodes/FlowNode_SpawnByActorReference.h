@@ -3,7 +3,7 @@
 
 #include "Nodes/FlowNode.h"
 
-#include "Components/SpawnComponent.h"
+#include "Gameplay/SpawnComponent.h"
 #include "FlowNode_SpawnByActorReference.generated.h"
 
 /**
