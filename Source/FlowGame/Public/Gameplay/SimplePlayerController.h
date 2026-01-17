@@ -3,7 +3,7 @@
 
 #include "GameFramework/PlayerController.h"
 #include "InputMappingContext.h"
-#include "SoloPlayerController.generated.h"
+#include "SimplePlayerController.generated.h"
 
 class UInteractionComponent;
 
@@ -11,7 +11,7 @@ class UInteractionComponent;
  *
  */
 UCLASS()
-class ASoloPlayerController : public APlayerController
+class ASimplePlayerController : public APlayerController
 {
 	GENERATED_UCLASS_BODY()
 
@@ -39,7 +39,7 @@ public:
 	TObjectPtr<UInputAction> CameraYawInput;
 
 private:
-	TWeakObjectPtr<class UEnhancedInputComponent> SoloInputComponent;
+	TWeakObjectPtr<class UEnhancedInputComponent> EnhancedInputComponent;
 	
 public:
 	virtual void SetupInputComponent() override;
