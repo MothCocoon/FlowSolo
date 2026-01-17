@@ -1,10 +1,8 @@
 // Copyright https://github.com/MothCocoon/FlowGame/graphs/contributors
 #pragma once
 
-#include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-
-#include "QuestUIManager.generated.h"
+#include "SimpleUIManager.generated.h"
 
 class UUserWidget;
 
@@ -12,12 +10,12 @@ class UUserWidget;
  *
  */
 UCLASS()
-class UQuestUIManager : public UGameInstanceSubsystem
+class USimpleUIManager : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 
 public:
-	UQuestUIManager();
+	USimpleUIManager();
 	
 private:
 	UPROPERTY()

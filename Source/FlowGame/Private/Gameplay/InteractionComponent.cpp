@@ -1,6 +1,7 @@
 // Copyright https://github.com/MothCocoon/FlowGame/graphs/contributors
 
-#include "Components/InteractionComponent.h"
+#include "Gameplay/InteractionComponent.h"
+
 #include "Camera/PlayerCameraManager.h"
 #include "Engine/World.h"
 

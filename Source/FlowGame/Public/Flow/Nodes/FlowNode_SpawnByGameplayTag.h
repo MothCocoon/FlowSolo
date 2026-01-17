@@ -5,7 +5,7 @@
 
 #include "Nodes/FlowNode.h"
 
-#include "Components/SpawnComponent.h"
+#include "Gameplay/SpawnComponent.h"
 #include "FlowNode_SpawnByGameplayTag.generated.h"
 
 /**

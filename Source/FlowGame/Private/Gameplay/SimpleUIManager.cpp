@@ -1,17 +1,17 @@
 // Copyright https://github.com/MothCocoon/FlowGame/graphs/contributors
 
-#include "UI/QuestUIManager.h"
+#include "Gameplay/SimpleUIManager.h"
 
 #include "Blueprint/UserWidget.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 
-#include UE_INLINE_GENERATED_CPP_BY_NAME(QuestUIManager)
+#include UE_INLINE_GENERATED_CPP_BY_NAME(SimpleUIManager)
 
-UQuestUIManager::UQuestUIManager()
+USimpleUIManager::USimpleUIManager()
 {
 }
 
-void UQuestUIManager::OpenWidget(const TSubclassOf<UUserWidget> WidgetClass)
+void USimpleUIManager::OpenWidget(const TSubclassOf<UUserWidget> WidgetClass)
 {
 	if (WidgetClass == nullptr || WidgetClass->HasAnyClassFlags(CLASS_Abstract) || OpenedWidgets.Contains(WidgetClass))
 	{
@@ -23,7 +23,7 @@ void UQuestUIManager::OpenWidget(const TSubclassOf<UUserWidget> WidgetClass)
 	Widget->AddToViewport();
 }
 
-void UQuestUIManager::CloseWidget(const TSubclassOf<UUserWidget> WidgetClass)
+void USimpleUIManager::CloseWidget(const TSubclassOf<UUserWidget> WidgetClass)
 {
 	if (UUserWidget* Widget = OpenedWidgets.FindRef(WidgetClass))
 	{
@@ -32,7 +32,7 @@ void UQuestUIManager::CloseWidget(const TSubclassOf<UUserWidget> WidgetClass)
 	}
 }
 
-void UQuestUIManager::ToggleWidget(const TSubclassOf<UUserWidget> WidgetClass)
+void USimpleUIManager::ToggleWidget(const TSubclassOf<UUserWidget> WidgetClass)
 {
 	if (OpenedWidgets.Contains(WidgetClass))
 	{
@@ -44,7 +44,7 @@ void UQuestUIManager::ToggleWidget(const TSubclassOf<UUserWidget> WidgetClass)
 	}
 }
 
-void UQuestUIManager::HideWidgets()
+void USimpleUIManager::HideWidgets()
 {
 	for (auto WidgetIt = OpenedWidgets.CreateIterator(); WidgetIt; ++WidgetIt)
 	{
@@ -55,7 +55,7 @@ void UQuestUIManager::HideWidgets()
 	}
 }
 
-void UQuestUIManager::RestoreWidgets()
+void USimpleUIManager::RestoreWidgets()
 {
 	for (const TSubclassOf<UUserWidget>& WidgetClass : HiddenWidgets)
 	{
