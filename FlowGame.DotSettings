@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=CppExpressionWithoutSideEffects/@EntryIndexedValue">HINT</s:String>
+	<s:Boolean x:Key="/Default/CodeStyle/CodeFormatting/CommonFormatter/SHOW_AUTODETECT_CONFIGURE_FORMATTING_TIP/@EntryValue">False</s:Boolean>
+	<s:String x:Key="/Default/CodeStyle/CodeFormatting/CppFormatting/ALIGNMENT_TAB_FILL_STYLE/@EntryValue">USE_TABS_ONLY</s:String>
+	<s:Boolean x:Key="/Default/CodeStyle/CodeFormatting/CppFormatting/INDENT_CASE_FROM_SWITCH/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeStyle/CodeFormatting/CppFormatting/USE_INDENT_FROM_VS/@EntryValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeStyle/CodeFormatting/CppFormatting/WRAP_LINES/@EntryValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeStyle/Generate/=CppDefinitions/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/CodeStyle/Generate/=CppDefinitions/Options/=GenerateInlineDefinitions/@EntryIndexedValue">False</s:String>
+</wpf:ResourceDictionary>

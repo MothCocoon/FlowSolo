@@ -2,16 +2,10 @@
 /.vs
 /_ReSharper.Caches
 /Binaries
-/Build/WindowsNoEditor
-/DerivedDataCache
 /Intermediate
 /Plugins/*/Binaries
 /Plugins/*/Intermediate
 /Saved
-/WindowsNoEditor
-
-/Plugins/Developer/RiderLink
-
 *.exe
 *.exp
 *.lib
