@@ -12,7 +12,11 @@
 	],
 	"Plugins": [
 		{
-			"Name": "EnhancedInput",
+			"Name": "Bridge",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
 			"Enabled": true
 		},
 		{
@@ -20,8 +24,36 @@
 			"Enabled": true
 		},
 		{
-			"Name": "Bridge",
+			"Name": "Iris",
 			"Enabled": true
-		}
+		},
+		{
+			"Name": "ModelViewViewModel",
+			"Enabled": true
+		},
+		{
+			"Name": "Mover",
+			"Enabled": true
+		},
+		{
+			"Name": "MoverExamples",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineServicesEOS",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineServicesEOSGS",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineServicesNull",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemEOS",
+			"Enabled": true
+		},
 	]
 }
