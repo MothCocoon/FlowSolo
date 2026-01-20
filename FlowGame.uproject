@@ -48,6 +48,10 @@
 			"Enabled": true
 		},
 		{
+			"Name": "OnlineServicesEpicCommon",
+			"Enabled": true
+		},
+		{
 			"Name": "OnlineServicesNull",
 			"Enabled": true
 		},
