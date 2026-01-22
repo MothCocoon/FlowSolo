@@ -23,6 +23,8 @@ public class FlowGame : ModuleRules
 			"EnhancedInput",
 			"GameplayTags",
 			"InputCore",
+			"Mover",
+			"NavigationSystem",
 			"Slate",
 			"SlateCore",
 			"UMG"
