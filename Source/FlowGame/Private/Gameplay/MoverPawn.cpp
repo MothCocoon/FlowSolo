@@ -78,20 +78,19 @@ void AMoverPawn::ProduceInput_Implementation(int32 SimTimeMs, FMoverInputCmdCont
 		return;
 	}
 
-	ConsumeMoveInput();
-	PawnInputs.SetMoveInput(EMoveInputType::Velocity, CachedMoveInputVelocity);
-
+	PawnInputs.SetMoveInput(EMoveInputType::Velocity, GetDirectionalIntent());
 	PawnInputs.ControlRotation = Controller->GetControlRotation();
 }
 
-void AMoverPawn::ConsumeMoveInput()
+FVector AMoverPawn::GetDirectionalIntent()
 {
 	// consume nav movement
 	if (Controller && NavMoverComponent)
 	{
-		CachedMoveInputIntent = NavMoverComponent->CachedNavMoveInputIntent;
-		CachedMoveInputVelocity = NavMoverComponent->CachedNavMoveInputVelocity;
+		return NavMoverComponent->CachedNavMoveInputIntent;
 	}
+	
+	return FVector::ZeroVector;
 }
 
 void AMoverPawn::MoveToLocation(const FVector& Origin) const

@@ -48,12 +48,17 @@ void APlayerPawn::RemoveExplorationContext() const
 	}
 }
 
-void APlayerPawn::ConsumeMoveInput()
+FVector APlayerPawn::GetDirectionalIntent()
 {
 	// read movement direction from player input
 	if (TaggedInputComponent.IsValid())
 	{
-		CachedMoveInputVelocity.X = TaggedInputComponent->GetValueByTag(PlayerTags::Input_MoveForward).Get<float>();
-		CachedMoveInputVelocity.Y = TaggedInputComponent->GetValueByTag(PlayerTags::Input_MoveRight).Get<float>();
+		FVector Result;
+		Result.X = TaggedInputComponent->GetValueByTag(PlayerTags::Input_MoveForward).Get<float>();
+		Result.Y = TaggedInputComponent->GetValueByTag(PlayerTags::Input_MoveRight).Get<float>();
+
+		return Result;
 	}
+
+	return FVector::ZeroVector;
 }

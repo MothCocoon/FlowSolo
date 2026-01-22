@@ -30,5 +30,5 @@ public:
 	void RemoveExplorationContext() const;
 
 protected:
-	virtual void ConsumeMoveInput() override;
+	virtual FVector GetDirectionalIntent() override;
 };
