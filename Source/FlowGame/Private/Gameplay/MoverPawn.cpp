@@ -60,8 +60,6 @@ FGameplayTagContainer AMoverPawn::GetIdentityTags() const
 
 void AMoverPawn::ProduceInput_Implementation(int32 SimTimeMs, FMoverInputCmdContext& InputCmdResult)
 {
-	// Cleaner version of AMoverExamplesCharacter::OnProduceInput
-
 	FCharacterDefaultInputs& PawnInputs = InputCmdResult.InputCollection.FindOrAddMutableDataByType<FCharacterDefaultInputs>();
 
 	// don't do anything if there's no local controller
@@ -78,20 +76,23 @@ void AMoverPawn::ProduceInput_Implementation(int32 SimTimeMs, FMoverInputCmdCont
 		return;
 	}
 
-	ConsumeMoveInput();
-	PawnInputs.SetMoveInput(EMoveInputType::Velocity, CachedMoveInputVelocity);
-
+	PawnInputs.SetMoveInput(EMoveInputType::DirectionalIntent, GetDirectionalIntent());
 	PawnInputs.ControlRotation = Controller->GetControlRotation();
 }
 
-void AMoverPawn::ConsumeMoveInput()
+FVector AMoverPawn::GetDirectionalIntent()
 {
 	// consume nav movement
 	if (Controller && NavMoverComponent)
 	{
-		CachedMoveInputIntent = NavMoverComponent->CachedNavMoveInputIntent;
-		CachedMoveInputVelocity = NavMoverComponent->CachedNavMoveInputVelocity;
+		FVector MoveInputIntent;
+		FVector MoveInputVelocity;
+		NavMoverComponent->ConsumeNavMovementData(MoveInputIntent, MoveInputVelocity);
+
+		return MoveInputIntent;
 	}
+
+	return FVector::ZeroVector;
 }
 
 void AMoverPawn::MoveToLocation(const FVector& Origin) const

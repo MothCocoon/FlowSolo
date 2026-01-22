@@ -52,11 +52,8 @@ public:
 	FGameplayTagContainer GetIdentityTags() const;
 
 protected:
-	FVector CachedMoveInputIntent;
-	FVector CachedMoveInputVelocity;
-
 	virtual void ProduceInput_Implementation(int32 SimTimeMs, FMoverInputCmdContext& InputCmdResult) override;
-	virtual void ConsumeMoveInput();
+	virtual FVector GetDirectionalIntent();
 
 protected:
 	// Used when obtaining reachable point around MoveTo target
