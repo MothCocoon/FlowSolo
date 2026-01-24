@@ -12,9 +12,9 @@ public class FlowGameEditorTarget : TargetRules
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 		NativePointerMemberBehaviorOverride = PointerMemberBehavior.Disallow;
 		
-		ExtraModuleNames.AddRange(new[]
-		{ 
+		ExtraModuleNames.AddRange(
+		[
 			"FlowGame"
-		});
+		]);
     }
 }
