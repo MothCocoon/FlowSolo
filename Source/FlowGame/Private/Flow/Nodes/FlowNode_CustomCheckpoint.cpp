@@ -1,11 +1,14 @@
 ﻿// Copyright https://github.com/MothCocoon/FlowGame/graphs/contributors
 
-#include "Flow/FlowNode_SoloCheckpoint.h"
+#include "Flow/Nodes/FlowNode_CustomCheckpoint.h"
 #include "Flow/FlowSaveSubsystem.h"
 
-#include UE_INLINE_GENERATED_CPP_BY_NAME(FlowNode_SoloCheckpoint)
+#include "Engine/GameInstance.h"
+#include "Engine/World.h"
 
-UFlowNode_SoloCheckpoint::UFlowNode_SoloCheckpoint(const FObjectInitializer& ObjectInitializer)
+#include UE_INLINE_GENERATED_CPP_BY_NAME(FlowNode_CustomCheckpoint)
+
+UFlowNode_CustomCheckpoint::UFlowNode_CustomCheckpoint(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 #if WITH_EDITOR
@@ -13,7 +16,7 @@ UFlowNode_SoloCheckpoint::UFlowNode_SoloCheckpoint(const FObjectInitializer& Obj
 #endif
 }
 
-void UFlowNode_SoloCheckpoint::ExecuteInput(const FName& PinName)
+void UFlowNode_CustomCheckpoint::ExecuteInput(const FName& PinName)
 {
 	if (GetWorld())
 	{
@@ -26,7 +29,7 @@ void UFlowNode_SoloCheckpoint::ExecuteInput(const FName& PinName)
 	TriggerFirstOutput(true);
 }
 
-void UFlowNode_SoloCheckpoint::OnLoad_Implementation()
+void UFlowNode_CustomCheckpoint::OnLoad_Implementation()
 {
 	TriggerFirstOutput(true);
 }
