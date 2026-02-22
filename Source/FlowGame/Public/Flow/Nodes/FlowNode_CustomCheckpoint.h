@@ -2,13 +2,13 @@
 #pragma once
 
 #include "Nodes/FlowNode.h"
-#include "FlowNode_SoloCheckpoint.generated.h"
+#include "FlowNode_CustomCheckpoint.generated.h"
 
 /**
  *
  */
 UCLASS(NotBlueprintable, meta = (DisplayName = "Checkpoint"))
-class UFlowNode_SoloCheckpoint final : public UFlowNode
+class UFlowNode_CustomCheckpoint final : public UFlowNode
 {
 	GENERATED_UCLASS_BODY()
 
