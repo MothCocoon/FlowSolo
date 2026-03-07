@@ -5,8 +5,8 @@ public class FlowGame : ModuleRules
 {
 	public FlowGame(ReadOnlyTargetRules target) : base(target)
 	{
-		bUseUnity = false;
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+		bUseUnity = false;
 
 		PublicDependencyModuleNames.AddRange(
 		[
