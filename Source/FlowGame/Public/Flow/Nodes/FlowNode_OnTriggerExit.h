@@ -10,5 +10,8 @@
 UCLASS(meta = (DisplayName = "On Trigger Exit"))
 class  UFlowNode_OnTriggerExit : public UFlowNode_OnTriggerEvent
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
+	
+public:
+	UFlowNode_OnTriggerExit();
 };

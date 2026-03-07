@@ -4,8 +4,7 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FlowNode_OnTriggerExit)
 
-UFlowNode_OnTriggerExit::UFlowNode_OnTriggerExit(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+UFlowNode_OnTriggerExit::UFlowNode_OnTriggerExit()
 {
 	bReactOnOverlapping = false;
 }

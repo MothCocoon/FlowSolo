@@ -4,8 +4,7 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FlowNode_SpawnByActorReference)
 
-UFlowNode_SpawnByActorReference::UFlowNode_SpawnByActorReference(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+UFlowNode_SpawnByActorReference::UFlowNode_SpawnByActorReference()
 {
 #if WITH_EDITOR
 	Category = TEXT("Actor");

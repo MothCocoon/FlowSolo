@@ -8,8 +8,7 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FlowNode_CustomCheckpoint)
 
-UFlowNode_CustomCheckpoint::UFlowNode_CustomCheckpoint(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+UFlowNode_CustomCheckpoint::UFlowNode_CustomCheckpoint()
 {
 #if WITH_EDITOR
 	Category = TEXT("Graph");

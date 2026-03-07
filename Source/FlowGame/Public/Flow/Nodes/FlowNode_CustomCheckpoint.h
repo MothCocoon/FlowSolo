@@ -10,7 +10,10 @@
 UCLASS(NotBlueprintable, meta = (DisplayName = "Checkpoint"))
 class UFlowNode_CustomCheckpoint final : public UFlowNode
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
+	
+public:
+	UFlowNode_CustomCheckpoint();
 
 protected:
 	virtual void ExecuteInput(const FName& PinName) override;

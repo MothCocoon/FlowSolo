@@ -12,7 +12,10 @@
 UCLASS(NotBlueprintable, meta = (DisplayName = "Spawn by Actor Reference"))
 class UFlowNode_SpawnByActorReference : public UFlowNode
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
+	
+public:
+	UFlowNode_SpawnByActorReference();
 
 protected:
 	UPROPERTY(EditAnywhere, Category = "SpawnPoint")

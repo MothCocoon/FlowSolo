@@ -5,8 +5,7 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FlowNode_SpawnByGameplayTag)
 
-UFlowNode_SpawnByGameplayTag::UFlowNode_SpawnByGameplayTag(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+UFlowNode_SpawnByGameplayTag::UFlowNode_SpawnByGameplayTag()
 {
 #if WITH_EDITOR
 	Category = TEXT("Actor");
