@@ -2,6 +2,7 @@
 /.vs
 /_ReSharper.Caches
 /Binaries
+/DerivedDataCache
 /Intermediate
 /Plugins/*/Binaries
 /Plugins/*/Intermediate
