@@ -12,7 +12,10 @@ class UFlowComponent;
 UCLASS(Abstract, NotBlueprintable)
 class  UFlowNode_OnTriggerEvent : public UFlowNode_ComponentObserver
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
+		
+public:
+	UFlowNode_OnTriggerEvent();
 
 protected:
 	UPROPERTY(EditAnywhere, Category = "Trigger")

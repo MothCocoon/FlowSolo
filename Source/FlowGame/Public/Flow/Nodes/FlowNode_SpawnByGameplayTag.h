@@ -14,7 +14,10 @@
 UCLASS(NotBlueprintable, meta = (DisplayName = "Spawn by Gameplay Tag"))
 class UFlowNode_SpawnByGameplayTag : public UFlowNode
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
+	
+public:
+	UFlowNode_SpawnByGameplayTag();
 
 protected:
 	UPROPERTY(EditAnywhere, Category = "SpawnPoint")

@@ -13,7 +13,10 @@ class UInteractionComponent;
 UCLASS(NotBlueprintable, meta = (DisplayName = "On Interaction Used"))
 class  UFlowNode_OnInteractionUsed : public UFlowNode_ComponentObserver
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
+		
+public:
+	UFlowNode_OnInteractionUsed();
 	
 protected:
 	TMap<TWeakObjectPtr<AActor>, TWeakObjectPtr<UInteractionComponent>> ObservedInteractions;

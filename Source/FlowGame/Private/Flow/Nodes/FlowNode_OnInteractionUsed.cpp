@@ -7,8 +7,7 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FlowNode_OnInteractionUsed)
 
-UFlowNode_OnInteractionUsed::UFlowNode_OnInteractionUsed(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+UFlowNode_OnInteractionUsed::UFlowNode_OnInteractionUsed()
 {
 }
 

@@ -12,7 +12,10 @@
 UCLASS(NotBlueprintable, meta = (DisplayName = "Set Interaction State"))
 class UFlowNode_SetInteractionState : public UFlowNode
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
+	
+public:	
+	UFlowNode_SetInteractionState();
 
 protected:
 	UPROPERTY(EditAnywhere, Category = "ObservedComponent")

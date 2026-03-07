@@ -5,9 +5,8 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FlowNode_OnTriggerEvent)
 
-UFlowNode_OnTriggerEvent::UFlowNode_OnTriggerEvent(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
-	, bReactOnOverlapping(false)
+UFlowNode_OnTriggerEvent::UFlowNode_OnTriggerEvent()
+	: bReactOnOverlapping(false)
 {
 	// default behavior: react on Player overlapping with triggers
 	if (FGameplayTag::IsValidGameplayTagString(TEXT("Player.Pawn")))
