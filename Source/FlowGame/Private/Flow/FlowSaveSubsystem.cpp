@@ -34,9 +34,8 @@ void UFlowSaveSubsystem::LoadGame()
 		AbortActiveFlows();
 		OnGameLoaded(Cast<UFlowSaveGame>(LoadedSave));
 
-		const UFlowSubsystem* FlowSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UFlowSubsystem>();
 		const AFlowWorldSettings* WorldSettings = Cast<AFlowWorldSettings>(GetWorld()->GetWorldSettings());
-		if (FlowSubsystem && WorldSettings && WorldSettings->GetFlowComponent()->LoadInstance())
+		if (WorldSettings && WorldSettings->GetFlowComponent()->LoadInstance(this))
 		{
 			WorldSettings->GetFlowComponent()->LoadRootFlow();
 		}
