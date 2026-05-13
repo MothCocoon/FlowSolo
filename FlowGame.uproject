@@ -12,10 +12,6 @@
 	],
 	"Plugins": [
 		{
-			"Name": "Bridge",
-			"Enabled": true
-		},
-		{
 			"Name": "CommonUI",
 			"Enabled": true
 		},
