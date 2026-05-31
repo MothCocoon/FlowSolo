@@ -13,6 +13,7 @@
 *.patch_*
 *.pdb
 *.sln
+*.slnx
 *.target
 *.user
 *.vsconfig
